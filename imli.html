@@ -13,15 +13,22 @@
     
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+        </script>
+
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
       <link href="css/styles.css" rel="stylesheet">
-      <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
-    <script type="text/javascript">
-    LatexIT.add('p',true);
-    </script>
     
 </head>
 
@@ -98,9 +105,9 @@
                                     max-height:50%;">
                             
                                 A sample is predicted <font color="blue">Iris Versicolor</font>  if <br>
-                                    (sepal length $ > 6.3$   $\text{ \textbf{OR} } $ sepal width $ > 3$   $\text{ \textbf{OR} } $ petal width $\le 1.5 $ ) 
+                                    (sepal length $ > 6.3$   $\textbf{OR}$ sepal width $ > 3$   $\textbf{OR}$ petal width $\le 1.5 $ ) 
                                      $ \textbf{AND} $ <br>
-                                    (sepal width $ \le 2.7$   $\text{ \textbf{OR} } $ petal length $ > 4$   $\text{ \textbf{OR} } $ petal width $ >1.2 $) 
+                                    (sepal width $ \le 2.7$   $\textbf{OR}  $ petal length $ > 4$   $ \textbf{OR} $ petal width $ >1.2 $) 
                                      $ \textbf{AND} $ <br>
                                     (petal length $ \le 5 $)
                             </p>
