@@ -17,9 +17,14 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-  	<link href="css/styles.css" rel="stylesheet">
+      <link href="css/styles.css" rel="stylesheet">
+      <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+    <script type="text/javascript">
+    LatexIT.add('p',true);
+    </script>
     
 </head>
+
 
 <body>
     
@@ -61,12 +66,79 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    
-	<h1 align="center">Coming soon.</h1>
 
+    <div id="projects" class="background-alt">
+            <!-- <h2 class="heading">Blog</h2> -->
+            <div class="container">
+                <div class="row">
+                    <div class="no-image">
+                        <div class="project-info">
+                            <h3>Incremental learning of interpretable classification rules</h3>
+                            <h4 align="center"><a href="publication/imli-ghosh.pdf">Paper</a> <a href="https://github.com/meelgroup/MLIC">Code</a> <a href="publication/imli-ghosh.bib">Cite</a> <a href="publication/imli-ghosh-slides.pdf">Slides</a></h4>
+                            <br>
+                            <br>
+                            <p align="justify" >
+                                    Interpretable machine learning focuses on designing decision boundaries that are easily understood by human. Rule-based classifiers  are 
+                                    arguably one of the interpratable models where the decision boundary is represented in the form of rules, for example, decision trees, decision 
+                                    lists etc. In the following part, we are going to talk about decision rules that follow a well known structure in formal logic in computer science.
+                            
+                            </p>
+                            <img src="images/imli/iris_dataset.png" class="img-fluid" alt="Iris dataset" align="center" style="max-width:70%;
+                            max-height:70%;">
+                            <br>
+
+                            <p align="justify" >
+                                In the avobe example we show Iris dataset, where each row represents a sample and each column represents a feature/attribute. An Iris flower has four features: sepal
+                                length, sepal width, petal lenght, and petal width. In supervised learning, each sample has a class label, for example, there
+                                are three classes in Iris dataset: Setosa, Versicolor, and Virginica. We can learn following interpretable rule on Iris dataset.
+                            </p>
+                            
+                            <p align="justify"> 
+                                    <img src="images/imli/deepnet.png"  alt="Deep Neural Network"  style="float:right;max-width:50%;
+                                    max-height:50%;">
+                            
+                                A sample is predicted <font color="blue">Iris Versicolor</font>  if <br>
+                                    (sepal length $ > 6.3$   $\text{ \textbf{OR} } $ sepal width $ > 3$   $\text{ \textbf{OR} } $ petal width $\le 1.5 $ ) 
+                                     $ \textbf{AND} $ <br>
+                                    (sepal width $ \le 2.7$   $\text{ \textbf{OR} } $ petal length $ > 4$   $\text{ \textbf{OR} } $ petal width $ >1.2 $) 
+                                     $ \textbf{AND} $ <br>
+                                    (petal length $ \le 5 $)
+                            </p>
+                            <p align="justify" >
+                                To compare interpretable rules with black box models, here we also show a neural network, which has hierarchy of neurons and
+                                lots of parameters. Therefore, it is often difficult to understand how the model is predictiing in case of black box models.
+                                On the other hand, the avobe rule can be parsed easily. The rule comprises of few boolean variables, i.e. sepal length $ > 6.3$ 
+                                can be either true or false for a sample. An Iris flower is predicted to be Iris Versicolor if it satisfies all three
+                                clauses, where a clause is satisfied when at least one literal in that clause is satisfied. 
+                            </p>
+                        </div>
+                        <!-- End .project-info -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    
+        <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-5 copyright">
+                        </div>
+                        <div class="col-sm-2 top">
+                            <span id="to-top">
+                                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End footer -->
+        
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="js/scripts.min.js"></script>
+
+    
     
     
     
@@ -77,8 +149,6 @@
 
     
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/scripts.min.js"></script>
 </body>
 
 </html>

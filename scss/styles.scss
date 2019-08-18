@@ -470,6 +470,7 @@ footer {
     padding: 50px 15px;
     text-align: center;
     border-bottom: 1px solid $border;
+    background: #ffffff;
 
     h2 {
         color: $heading;
@@ -705,6 +706,7 @@ footer {
     padding: 50px 15px;
     border-bottom: 1px solid $border;
     text-align: center;
+    background: #ffffff;
 
     h2 {
         color: $heading;
@@ -717,7 +719,6 @@ footer {
     max-width: 900px;
     margin: 0 auto 30px auto;
     overflow: hidden;
-    background: #fff;
     border-radius: 4px;
 }
 
@@ -734,15 +735,15 @@ footer {
 
     h3 {
         font-size: 1.5em;
-        font-weight: 300;
+        font-weight: 600;
         color: $heading;
         margin: 0 0 15px 0;
     }
 
     p {
-        color: $text;
+        // color: $text;
         margin: 0 0 15px 0;
-        font-size: 0.9em;
+        font-size: 1.2em;
     }
 }
 
@@ -752,6 +753,7 @@ footer {
         margin: 0;
         padding: 30px 15px;
         transform: none;
+        
     }
 }
 
