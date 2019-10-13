@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bishwamittra Ghosh</title>
+    <title>IMLI: Incremental classification rule learning</title>
 	<link rel="shortcut icon" href="images/pp.jpg" type="image/x-icon">
 	<link rel="icon" href="images/pp.jpg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -79,25 +79,27 @@
                 <div class="row">
                     <div class="no-image">
                         <div class="project-info">
-                            <h3>Incremental learning of interpretable classification rules</h3>
+                            <h1>Incremental learning of interpretable classification rules</h1>
+                            <h3><a href="index.html">Bishwamittra Ghosh</a></font></h3>
+
                             <h4 align="center"><a href="publication/imli-ghosh.pdf">Paper</a> <a href="https://github.com/meelgroup/MLIC">Code</a> <a href="publication/imli-ghosh.bib">Cite</a> <a href="publication/imli-ghosh-slides.pdf">Slides</a></h4>
                             <br>
                             <br>
                             <p align="justify" >
-                                    Interpretable machine learning focuses on designing decision boundaries that are easily understood by human. Rule-based classifiers  are 
-                                    arguably one of the interpratable models where the decision boundary is represented in the form of rules, for example, decision trees, decision 
-                                    lists etc. In the following part, we are going to talk about decision rules that follow a well known structure in formal logic in computer science.
-                            
+
+                                    Machine learning models are now being deployed in critical decision making, for example, hiring employees, giving a loan to a person, predicting recidivism, etc. Therefore, end-users need to trust the model. Our primary motivation for this work is to design an interpretable rule-based classification model, which generates highly interpretable smaller rules.
                             </p>
-                            <img src="images/imli/iris_dataset.png" class="img-fluid" alt="Iris dataset" align="center" style="max-width:90%;
-                            max-height:90%;">
+                            
+                            <br>
+                            <h2 align="left"> <font color="#148f77">Example of interpretable classification rules</font></h2>        
+                            <p align="justify" >
+                                    First, take a look at the Iris dataset, where each row represents a sample, and each column represents a feature/attribute of the Iris flower. An Iris flower has four features: sepal length, sepal width, petal length, and petal width. In supervised learning, each sample has a class label, i.e., there are three classes in the Iris dataset: Setosa, Versicolor, and Virginica. We can learn the following interpretable rule on the Iris dataset.
+                            </p>
+                            <img src="images/imli/iris_dataset.png" class="img-fluid" alt="Iris dataset" align="center" style="max-width:80%;
+                            max-height:80%;">
                             <br>
 
-                            <p align="justify" >
-                                In the avobe example we show Iris dataset, where each row represents a sample and each column represents a feature/attribute. An Iris flower has four features: sepal
-                                length, sepal width, petal lenght, and petal width. In supervised learning, each sample has a class label, for example, there
-                                are three classes in Iris dataset: Setosa, Versicolor, and Virginica. We can learn following interpretable rule on Iris dataset.
-                            </p>
+                            
                             
                             <p align="justify"> 
                                     
@@ -110,17 +112,212 @@
                                     (petal length $ \le 5 $)
                             </p>
                             <br>
-                            <img src="images/imli/deepnet.png"  alt="Deep Neural Network"  style="float:center;max-width:50%;
-                                    max-height:50%;">
 
+                            
                             <p align="justify" >
-                                To compare interpretable rules with black box models, here we also show a neural network, which has hierarchy of neurons and
-                                lots of parameters. Therefore, it is often difficult to understand how the model is predictiing in case of black box models.
-                                On the other hand, the avobe rule can be parsed easily. The rule comprises of few boolean variables, i.e. sepal length $ > 6.3$ 
-                                can be either true or false for a sample. An Iris flower is predicted to be Iris Versicolor if it satisfies all three
-                                clauses, where a clause is satisfied when at least one literal in that clause is satisfied. 
+                                    We can parse the above rule in the following way. An Iris flower is predicted as 
+                                    Iris Versicolor if it satisfies the rule, which is a conjunction of three clauses, 
+                                    where each clause is a disjunction of literals. A literal (i.e., sepal length $ > 6.3$)
+                                    can take binary decisions (true or false). In the above rule, a clause is satisfied 
+                                    when at least one literal is satisfied, and the rule is satisfied when all clauses 
+                                    are satisfied. In this work, we are interested in learning classification rules 
+                                    in the form of logical formulas.
+                                
                             </p>
+                            <br>
+
+                            <h2 align="left"> <font color="#148f77">Revisiting logical formulas</font></h2>        
+                            <p align="justify">
+                                A logical formula in CNF (Conjunctive Normal Form) is a conjunction of clauses, where 
+                                each clause is a disjunction of literals, whereas a formula in DNF (Disjunctive Normal
+                                Form) is a disjunction of clauses, where each clause is a conjunction of literals. For 
+                                Boolean propositional variables $ \{a,b,c,d,e\}$, an example of a CNF formula is 
+                                $(a \vee \neg b  \vee c ) \wedge (d \vee e)$, and an example of a DNF formula is 
+                                $(a \wedge b \wedge \neg  c ) \vee (d \wedge e)$. Here $\neg a$ denotes the complement of 
+                                $a$. In various studies [Malioutov et al., 2018; Lakkaraju et al., 2019], it is found that classification rules 
+                                in the form of CNF/DNF are highly interpretable. 
+                            </p>
+                            
+                            <br>
+                            <h2 align="left"> <font color="#148f77">Definition of Interpretibility</font></h2> 
+
+                            <p align="justify">
+                                    Defining the interpretability of a classifier is a challenging task. We have 
+                                    narrowed down our look into rule-based classifiers and find that smaller 
+                                    rules suffice in various practical domains, specifically in the medical domain, 
+                                    because compared to larger rules, smaller rules are within reach of human 
+                                    understandability. Therefore, we refer to the size of the rules as a proxy 
+                                    in interpretability and design a classifier for learning smaller rules. 
+                                    In CNF/DNF rules, rule size can be the total number of literals in the formula. 
+                                
+                            </p>
+
+                            <br>
+                            <h2 align="left"><font color="#148f77">Objective function and constraints</font></h2>
+
+                            <p align="justify">
+                                In the standard binary classification problem, we 
+                                have designed the objective function, which minimizes both the prediction accuracy
+                                and size of the desired rule, so that the classifier can learn both accurate and interpretable rules. 
+                                In our model, features can take only binary values (0 or 1). We have applied 
+                                standard discretization techniques to convert categorical and continuous features into 
+                                binary features. To learn a $k$-clause rule, we consider two types of Boolean propositional 
+                                variables: 
+                                <br>
+                                <br>
+                                (i) feature variable 
+                                $ b_i^j = {1}\{j\text{-th feature} \text{ is selected in } i \text{-th clause} \}$, 
+                                <br>(ii) 
+                                noise variable  (classification error) $ \eta_q = {1}\{\text{sample } q \text{ is misclassified}\} $. 
+                                
+                                <br>
+                                <br>
+                                Note that 
+                                we consider feature variables for both positive (1) feature value  and negative (0) feature value in
+                                the binary featured dataset. Now we define the objective function in the following
+                                way. $$\min \sum_{i,j} b_i^j + \lambda \sum_q \eta_q$$
+
+                                $\lambda$ is the data fidelity parameter deciding the trade-off between 
+                                interpretability and accuracy. In this work, we optimize the objective function
+                                subject to the constraints that a positive labeled sample satisfies the learned rule, and 
+                                a negative labeled sample does not satisfy the rule, otherwise the sample is considered as a
+                                classification noise. 
+                                <br>
+                                <br>
+                                We encode the discrete optimization problem as a MaxSAT query and use a MaxSAT solver
+                                for the assignment of the decision variables $b_i^j$ and $\eta_q $. 
+
+                                
+                            </p>
+                            <br>
+                            <h2 align="left" font="red" > <font color="#148f77">Revisiting MaxSAT</font></h2>   
+                            <p align="justify">
+                                    The maximum satisfiability problem (MaxSAT) is an optimization analog to
+                                     the propositional satisfiability problem (SAT). In SAT, the goal is to 
+                                     find an assignment to the Boolean variables that satisfies all the clauses.
+                                      In MaxSAT, the objective is to find an assignment that satisfies most
+                                       of the clauses. We consider a weighted variant of the CNF formula,
+                                        where each clause is associated with weight and solve the partial
+                                         weighted MaxSAT formula. Based on the weight, there are two types of clauses. 
+                                <br>
+                                <br>
+                                (i) Hard clause: the weight is $\infty $
+                                <br>
+                                (ii) Soft clause: can take weight $\in \mathbb{R}^+ $ 
+                                <br>
+                                <br>
+                                In partial weighted MaxSAT, the goal is to find an assignment to the variables that satisfies
+                                all hard clauses and most of the soft clauses such that the weight of the satisfied soft 
+                                clauses in maximized.
+                            </p>     
+                            
+
+                            <br>
+                            <h2 align="left"> <font color="#148f77">MaxSAT encoding</font></h2>  
+                            <p align="justify">
+                                We encode the above objective function as soft clauses and the constraints as hard clauses 
+                                to construct the MaxSAT  query (please refer to the <a href="publication/imli-ghosh.pdf">paper</a>
+                                for details). We can use any off-the-shelf MaxSAT solver (we have used Open-Wbo)
+                                to solve the query. We finally construct the rule based on the assignment to the feature variables $b_i^j$.
+                                
+
+
+                            </p>
+                            
+                            <p align="justify">
+                                We have analyzed the complexity of the MaxSAT query in terms of the number of 
+                                clauses in the MaxSAT formula. 
+                                 To generate a $ k $-clause CNF rule for a dataset of $ n $ samples over
+                                $ m $ boolean features, the number of clauses of the MaxSAT
+                                instance is $ \mathcal{O}(n\cdot m \cdot k) $. Therefore, the formula becomes large when 
+                                the dataset has many samples. In the following, we propose an incremental mini-batch 
+                                approach for learning interpretable classification rules.  
+                            </p>
+
+                            <br>
+                            <h2 align="left"> <font color="#148f77">An Incremental Rule-learning Approach</font></h2>        
+                            <img src="images/imli/framework.png" class="img-fluid" alt="Iris dataset" align="center" style="max-width:80%;
+                            max-height:80%;">
+                            <br>
+                            <br>
+                            <p align="justify">
+                                We now discuss an incremental mini-batch learning approach, which can scale to large datasets. 
+                                In this approach, we first split the datasets into a fixed number $p$ of batches. We propose to 
+                                update the rule $\mathcal{R}$ incrementally over batches. The rule $\mathcal{R}_t$
+                                in batch $t$ depends on the samples in the current batch and also the rule $\mathcal{R}_{t-1}$
+                                learned in the previous batch. Note that, only the feature variable $b_i^j$ is shared in all batches 
+                                because the samples in all batches have similar features. Therefore, while learning $\mathcal{R}_t$
+                                we know the assignment to $b_i^j$ in the previous ($t-1$) batch. We consider the following objective
+                                function in batch $t$. 
+                                $$
+                                \min \sum_{i,j} b_i^j \cdot I(b_i^j)+ \lambda \sum_q \eta_q.
+                                $$
+                                where indicator function $ I(\cdot) $ is defined as follows.
+                                $$
+                                I(b_i^j)=
+                                \begin{cases}
+                                -1 \quad \text{if }  b_i^j =1 \text{ in the }  (t-1) \text{-th batch } (t \ne 1)
+                                \\
+                                1 \quad \text{otherwise}
+                                \end{cases}
+                                $$
+
+                                Intuitively, the objective function tries to keep the previous assignment to the feature 
+                                variable $b_i^j$ while learning $\mathcal{R}_t$ in the current batch.
+
+                                
+
+
+                            
+                             </p>
+                             <p align="justify">
+                                 <font color="red">Improvement:</font> The incremental approach makes  $ p $ queries to the 
+                                 MaxSAT solver with each query of the formula size $ \mathcal{O}(\frac{n}{p}\cdot m \cdot k) $. 
+                                 
+                             </p>
+
+                             <br>
+                             <h2 align="left"> <font color="#148f77">Key experimental results</font></h2>  
+                             <p align="justify">
+                                 (i) The incremental approach achieves up to three orders of magnitude improvement in
+                                 training time by sacrificing a bit of accuracy.
+                                 <br>
+                                 (ii) This approach generates shorter rules compared to other rule-based models.
+                                 <br>
+                                 (iii) The number of batches  provides a smooth trade-off 
+                                 between training time and prediction accuracy.
+                             </p>
+                            
+
+                            <br>
+                            <h2 align="left"> <font color="#148f77">Conclusion</font></h2>        
+                            
+                            <p align="justify">
+                                    The interpretable machine learning model ensures the reliability of
+                                     prediction models in practice. We propose an incremental rule learning
+                                      framework, which makes a step towards making the prediction model
+                                       more reliable and trustworthy. This approach not only achieves
+                                        an improvement in scalability but also generates shorter interpretable rules. 
+ 
+                            </p>
+
+                            <br>
+                            <h2 align="left"> <font color="#148f77">Reference</font></h2>        
+                            
+                            <p align="justify">
+                                [Malioutov et al., 2018] Dmitry Maliotov and Kuldeep S Meel.  MLIC: A MaxSAT-Based Framework for Learning 
+                                Interpretable Classification Rules. In Proc. of CP, 2018.
+                                <br>
+                                <br>
+                                [Lakkaraju et al., 2019] Himabindu Lakkaraju, Ece Kamar, Rich Caruana, and Jure Leskovec. 
+                                Faithful and customizable explanations of black box models. In Proc. of AIES, 2019.
+                            </p>    
+
+
+                            
                         </div>
+
+                            
                         <!-- End .project-info -->
                     </div>
                 </div>
