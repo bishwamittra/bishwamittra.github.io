@@ -87,7 +87,11 @@
                             <br>
                             <p align="justify" >
 
-                                    Machine learning models are now being deployed in critical decision making, for example, hiring employees, giving a loan to a person, predicting recidivism, etc. Therefore, end-users need to trust the model. Our primary motivation for this work is to design an interpretable rule-based classification model, which generates highly interpretable smaller rules.
+                                    Machine learning models are now being deployed in critical decision making, for example,
+                                    hiring employees, giving a loan to a person, predicting recidivism, etc. 
+                                    Therefore, end-users need to trust the model. Our primary motivation for
+                                    this work is to design an interpretable rule-based classification model, 
+                                    which generates highly interpretable smaller rules.
                             </p>
                             
                             <br>
@@ -116,7 +120,7 @@
                             
                             <p align="justify" >
                                     We can parse the above rule in the following way. An Iris flower is predicted as 
-                                    Iris Versicolor if it satisfies the rule, which is a conjunction of three clauses, 
+                                    Iris Versicolor if it satisfies the rule. The rule is a conjunction of three clauses, 
                                     where each clause is a disjunction of literals. A literal (i.e., sepal length $ > 6.3$)
                                     can take binary decisions (true or false). In the above rule, a clause is satisfied 
                                     when at least one literal is satisfied, and the rule is satisfied when all clauses 
@@ -129,12 +133,12 @@
                             <h2 align="left"> <font color="#148f77">Revisiting logical formulas</font></h2>        
                             <p align="justify">
                                 A logical formula in CNF (Conjunctive Normal Form) is a conjunction of clauses, where 
-                                each clause is a disjunction of literals, whereas a formula in DNF (Disjunctive Normal
-                                Form) is a disjunction of clauses, where each clause is a conjunction of literals. For 
+                                each clause is a disjunction of literals. Moreover, a formula in DNF (Disjunctive Normal
+                                Form) is a disjunction of clauses, where each clause is a conjunction of literals. Given
                                 Boolean propositional variables $ \{a,b,c,d,e\}$, an example of a CNF formula is 
                                 $(a \vee \neg b  \vee c ) \wedge (d \vee e)$, and an example of a DNF formula is 
                                 $(a \wedge b \wedge \neg  c ) \vee (d \wedge e)$. Here $\neg a$ denotes the complement of 
-                                $a$. In various studies [Malioutov et al., 2018; Lakkaraju et al., 2019], it is found that classification rules 
+                                $a$. In several studies [Malioutov et al., 2018; Lakkaraju et al., 2019], it is found that classification rules 
                                 in the form of CNF/DNF are highly interpretable. 
                             </p>
                             
@@ -144,10 +148,10 @@
                             <p align="justify">
                                     Defining the interpretability of a classifier is a challenging task. We have 
                                     narrowed down our look into rule-based classifiers and find that smaller 
-                                    rules suffice in various practical domains, specifically in the medical domain, 
-                                    because compared to larger rules, smaller rules are within reach of human 
+                                    rules suffice in various practical domains, specifically in the medical domain.  
+                                    The reason is that compared to larger rules, smaller rules are within reach of human 
                                     understandability. Therefore, we refer to the size of the rules as a proxy 
-                                    in interpretability and design a classifier for learning smaller rules. 
+                                    in interpretability. 
                                     In CNF/DNF rules, rule size can be the total number of literals in the formula. 
                                 
                             </p>
@@ -157,10 +161,11 @@
 
                             <p align="justify">
                                 In the standard binary classification problem, we 
-                                have designed the objective function, which minimizes both the prediction accuracy
-                                and size of the desired rule, so that the classifier can learn both accurate and interpretable rules. 
-                                In our model, features can take only binary values (0 or 1). We have applied 
-                                standard discretization techniques to convert categorical and continuous features into 
+                                have designed an objective function to minimize both the prediction accuracy
+                                and the size of the desired rule, so that the classifier can learn  accurate interpretable rules. 
+                                In our model, features can take only binary values (0 or 1). For datasets with categorical and continuous features, 
+                                we have applied 
+                                standard discretization techniques to convert them into 
                                 binary features. To learn a $k$-clause rule, we consider two types of Boolean propositional 
                                 variables: 
                                 <br>
@@ -172,10 +177,8 @@
                                 
                                 <br>
                                 <br>
-                                Note that 
-                                we consider feature variables for both positive (1) feature value  and negative (0) feature value in
-                                the binary featured dataset. Now we define the objective function in the following
-                                way. $$\min \sum_{i,j} b_i^j + \lambda \sum_q \eta_q$$
+                                We have consider feature variables for both positive (1) feature value  and negative (0) feature value in
+                                the binary featured dataset. In the following, we define the objective function. $$\min \sum_{i,j} b_i^j + \lambda \sum_q \eta_q$$
 
                                 $\lambda$ is the data fidelity parameter deciding the trade-off between 
                                 interpretability and accuracy. In this work, we optimize the objective function
@@ -203,7 +206,7 @@
                                 <br>
                                 (i) Hard clause: the weight is $\infty $
                                 <br>
-                                (ii) Soft clause: can take weight $\in \mathbb{R}^+ $ 
+                                (ii) Soft clause: each clause can take weight $\in \mathbb{R}^+ $ 
                                 <br>
                                 <br>
                                 In partial weighted MaxSAT, the goal is to find an assignment to the variables that satisfies
@@ -217,7 +220,7 @@
                             <p align="justify">
                                 We encode the above objective function as soft clauses and the constraints as hard clauses 
                                 to construct the MaxSAT  query (please refer to the <a href="publication/imli-ghosh.pdf">paper</a>
-                                for details). We can use any off-the-shelf MaxSAT solver (we have used Open-Wbo)
+                                for details). We can use any off-the-shelf MaxSAT solver 
                                 to solve the query. We finally construct the rule based on the assignment to the feature variables $b_i^j$.
                                 
 
