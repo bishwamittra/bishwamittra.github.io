@@ -87,7 +87,7 @@
                             <br>
                             <p align="justify" >
 
-                                    Machine learning models are now being deployed in critical decision making, for example,
+                                    Machine learning models are now being deployed in the critical decision making, for example,
                                     hiring employees, giving a loan to a person, predicting recidivism, etc. 
                                     Therefore, end-users need to trust the model. Our primary motivation for
                                     this work is to design an interpretable rule-based classification model, 
@@ -177,7 +177,7 @@
                                 
                                 <br>
                                 <br>
-                                We have consider feature variables for both positive (1) feature value  and negative (0) feature value in
+                                We have considered feature variables for both positive (1) feature value  and negative (0) feature value in
                                 the binary featured dataset. In the following, we define the objective function. $$\min \sum_{i,j} b_i^j + \lambda \sum_q \eta_q$$
 
                                 $\lambda$ is the data fidelity parameter deciding the trade-off between 
@@ -250,7 +250,8 @@
                                 in batch $t$ depends on the samples in the current batch and also the rule $\mathcal{R}_{t-1}$
                                 learned in the previous batch. Note that, only the feature variable $b_i^j$ is shared in all batches 
                                 because the samples in all batches have similar features. Therefore, while learning $\mathcal{R}_t$
-                                we know the assignment to $b_i^j$ in the previous ($t-1$) batch. We consider the following objective
+                                we already know the assignment to $b_i^j$ in the previous ($t-1$) batch. In the 
+                                incremetal approach, we consider the following objective
                                 function in batch $t$. 
                                 $$
                                 \min \sum_{i,j} b_i^j \cdot I(b_i^j)+ \lambda \sum_q \eta_q.
@@ -301,6 +302,10 @@
                                       framework, which makes a step towards making the prediction model
                                        more reliable and trustworthy. This approach not only achieves
                                         an improvement in scalability but also generates shorter interpretable rules. 
+                                        <br>
+                                        <br>
+                                    We have released a python <a href="https://pypi.org/project/rulelearning/">library</a> 
+                                    for this framework. The source code is also available in the Github <a href="https://github.com/meelgroup/MLIC">repo</a>. 
  
                             </p>
 
