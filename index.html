@@ -99,16 +99,15 @@
             
             
 
-        <h2 class="heading">Conference Papers</h2>
+        <h2 class="heading">Selected Publications</h2>
 
         <div class="publication-block">
-            <h1 class="heading">2020</h1>
-
+            
             <div class="container">
                 <div class="row">
                     <div class="col-md-1">
                          <span class="serial">
-                            <strong> [C3]  </strong><br />
+                            <strong> [C]  </strong><br />
                         </span>
     
                     </div>
@@ -144,65 +143,20 @@
                                 learn relaxed-CNF rules. Our experimental analysis demonstrates 
                                 that CRR can generate relaxed-CNF rules, which are more accurate 
                                 and sparser compared to the alternative rule-based models.
-                            </p>
+                            </p>https://arxiv.org/pdf/2009.06516.pdf
                 
                         </div>
                     </div>
     
                 </div>
             </div>
-        
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-1">
-                         <span class="serial">
-                            <strong> [C2]  </strong><br />
-                        </span>
-    
-                    </div>
-                    <div class="col-md-8">
-                        <h3>A MaxSAT-based Framework for Group Testing</h3>
-                        <h4> Lorenzo Ciampiconi, <strong>Bishwamittra Ghosh</strong>, Jonathan Scarlett, Kuldeep S. Meel.</h4> 
-    
-                        <h4>Proceedings of AAAI, 2020.</h4>
-                        <button type="button" class="btn  btn-info collapsed" data-toggle="collapse" data-target="#mgt">Abstract</button>
-                          <a href="publication/aaai_2020/AAAI-CiampiconiL.690.pdf" class="btn btn-info" role="button">PDF</a>
-                          <a href="https://github.com/meelgroup/mgt
-                        " class="btn btn-info" role="button">Code</a>
-                        <a href="publication/aaai_2020/AAAI-CiampiconiL.690.bib" class="btn btn-info" role="button">Cite</a>
-                        <div id="mgt" class="collapse">
-                            <p align="justify">
-                                The success of MaxSAT (maximum satisfiability) solving in recent years has motivated researchers
-                                to apply MaxSAT solvers in diverse discrete combinatorial optimization problems. 
-                                Group testing has been studied as a combinatorial optimization problem, 
-                                where the goal is to find defective items among a set of items by performing sets 
-                                of tests on items. In this paper, we propose a MaxSAT-based framework, called MGT, 
-                                that solves group testing, in particular, the decoding phase of non-adaptive group 
-                                testing. We extend this approach to the noisy variant of group testing, and propose 
-                                a compact MaxSAT-based encoding that guarantees an optimal solution. Our extensive 
-                                experimental results show that MGT can solve group testing instances of 10000 
-                                items with 3% defectivity, which no prior work can handle to the best of our knowledge. 
-                                Furthermore, MGT has better accuracy than the LP-based approach. We also discover an 
-                                interesting phase transition behavior in the runtime, which reveals the easy-hard-easy 
-                                nature of group testing.
-                            </p>
-                        </div>
-                    </div>
-    
-                </div>
-            </div>
-            
-        </div>
-    
 
-        <div class="publication-block">
-            <h1 class="heading">2019</h1>
-        
+
             <div class="container">
                 <div class="row">
                     <div class="col-md-1">
                             <span class="serial">
-                            <strong> [C1]  </strong><br />
+                            <strong> [C]  </strong><br />
                         </span>
 
                     </div>
@@ -238,134 +192,124 @@
 
                 </div>
             </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1">
+                            <span class="serial">
+                            <strong> [P]  </strong><br />
+                        </span>
+
+                    </div>
+                    <div class="col-md-8">
+                        <h3>Justicia: A Stochastic SAT Approach to Formally
+                            Verify Fairness</h3>
+                        <h4> <strong>Bishwamittra Ghosh</strong>, Debabrota Basu, Kuldeep S. Meel</h4> 
+                        <h4>arXiv preprint, 2020.</h4>
+                        <button type="button" class="btn  btn-info collapsed" data-toggle="collapse" data-target="#lexr">Abstract</button>
+                            <a href="https://arxiv.org/pdf/2009.06516.pdf" class="btn btn-info" role="button">PDF</a>
+                            <a href="publication/justicia/paper.bib" class="btn btn-info" role="button"	>Cite</a>
+                            <!-- <a href="publication/fssgq-ghosh-slides.pdf" class="btn btn-info" role="button"	>Slides</a> -->
+                            <!-- <a href="https://github.com/bishwamittra/LEXR" class="btn btn-info" role="button"	>Code</a> -->
+                            <!-- <a href="https://www.dropbox.com/s/7njeqwajgtb6696/lexr.mov?dl=0" class="btn btn-info" role="button"	>Video</a> -->
+                            <!-- <a href="https://www.dropbox.com/s/01qg1x3xt7as7n0/lexr.pptx?dl=0" class="btn btn-info" role="button"	>Slides</a> -->
+                                                            
+        
+                        <div id="lexr" class="collapse">
+                            <p align="justify">
+                                As a technology ML is oblivious to societal good or bad, and thus, the field of fair machine
+                                learning has stepped up to propose multiple mathematical definitions, algorithms, and
+                                systems to ensure different notions of fairness in ML applications. Given the multitude of
+                                propositions, it has become imperative to formally verify the fairness metrics satisfied by
+                                different algorithms on different datasets. In this paper, we propose a stochastic satisfiability
+                                (SSAT) framework, Justicia, that formally verifies different fairness measures of supervised
+                                learning algorithms with respect to the underlying data distribution. We instantiate Justicia
+                                on multiple classification and bias mitigation algorithms, and datasets to verify different
+                                fairness metrics, such as disparate impact, statistical parity, and equalized odds. Justicia is
+                                scalable, accurate, and operates on non-Boolean and compound sensitive attributes unlike
+                                existing distribution-based verifiers, such as FairSquare and VeriFair. Being distribution-based
+                                by design, Justicia is more robust than the verifiers, such as AIF360, that operate
+                                on specific test samples. We also theoretically bound the finite-sample error of the verified
+                                fairness measure.
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1">
+                            <span class="serial">
+                            <strong> [P]  </strong><br />
+                        </span>
+
+                    </div>
+                    <div class="col-md-8">
+                        <h3>A Formal Language Approach to Explaining RNNs</h3>
+                        <h4> <strong>Bishwamittra Ghosh</strong>, Daniel Neider</h4> 
+                        <h4>arXiv preprint, 2020.</h4>
+                        <button type="button" class="btn  btn-info collapsed" data-toggle="collapse" data-target="#lexr">Abstract</button>
+                            <a href="https://arxiv.org/pdf/2006.07292.pdf" class="btn btn-info" role="button">PDF</a>
+                            <a href="publication/lexr/paper.bib" class="btn btn-info" role="button"	>Cite</a>
+                            <!-- <a href="publication/fssgq-ghosh-slides.pdf" class="btn btn-info" role="button"	>Slides</a> -->
+                            <a href="https://github.com/bishwamittra/LEXR" class="btn btn-info" role="button"	>Code</a>
+                            <a href="https://www.dropbox.com/s/7njeqwajgtb6696/lexr.mov?dl=0" class="btn btn-info" role="button"	>Video</a>
+                            <a href="https://www.dropbox.com/s/01qg1x3xt7as7n0/lexr.pptx?dl=0" class="btn btn-info" role="button"	>Slides</a>
+                                                            
+        
+                        <div id="lexr" class="collapse">
+                            <p align="justify">
+                                This paper presents LEXR, a framework for explaining the decision making of recurrent neural networks (RNNs) using a formal description language called Linear Temporal Logic (LTL). LTL is the de facto standard for the specification of temporal properties in the context of formal verification and features many desirable properties that make the generated explanations easy for humans to interpret: it is a descriptive language, it has a variable-free syntax, and it can easily be translated into plain English. To generate explanations, LEXR follows the principle of counterexample-guided inductive synthesis and combines Valiant's probably approximately correct learning (PAC) with constraint solving. We prove that LEXR's explanations satisfy the PAC guarantee (provided the RNN can be described by LTL) and show empirically that these explanations are more accurate and easier-to-understand than the ones generated by recent algorithms that extract deterministic finite automata from RNNs.
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1">
+                            <span class="serial">
+                            <strong> [J]  </strong><br />
+                        </span>
+
+                    </div>
+                    <div class="col-md-8">
+                        <h3>The Flexible Socio Spatial Group Queries	</h3>
+                        <h4> <strong>Bishwamittra Ghosh</strong>, Mohammed Eunus Ali, Farhana M. Choudhury,</h4> 
+
+                        <h4>Sajid Hasan Apon, Timos Sellis, Jianxin Li.</h4>
+                        <h4>Proceedings of the VLDB Endowment (PVLDB), 2019.</h4>
+                        <button type="button" class="btn  btn-info collapsed" data-toggle="collapse" data-target="#fssgq">Abstract</button>
+                            <a href="publication/fssgq-ghosh.pdf" class="btn btn-info" role="button">PDF</a>
+                            <a href="publication/fssgq-ghosh.bib" class="btn btn-info" role="button"	>Cite</a>
+                            <a href="publication/fssgq-ghosh-slides.pdf" class="btn btn-info" role="button"	>Slides</a>
+
+        
+                        <div id="fssgq" class="collapse">
+                            <p align="justify">
+                                A socio spatial group query finds a group of users who possess strong social connections with each other and have the minimum aggregate spatial distance to a meeting point. Existing studies limit the socio spatial group search to either finding best group of a fixed size for a single meeting location, or a single group of a fixed size w.r.t. multiple meeting locations. However, it is highly desirable to consider multiple meeting locations/POIs in a real-life scenario in order to organize impromptu activities of user groups of various sizes. In this paper, we propose Top k Flexible Socio Spatial Group Query (Top k-FSSGQ) to find and rank the top k groups w.r.t. multiple POIs where each group follows the minimum social connectivity constraints. We devise a ranking function to measure the group score by combining social closeness, spatial distance, and group size, which provides the flexibility of choosing groups of different sizes under different constraints. To effectively process the Top k-FSSGQ, we first develop an Exact approach that ensures early termination of the search based on the derived upper bounds. We prove that the problem is NP-hard, hence we first present a heuristic based approximation algorithm to effectively select members in intermediate solution groups based on the social connectivity of the users. Later we design a Fast Approximate approach based on the relaxed social and spatial bounds, and connectivity constraint heuristic. Experimental studies have verified the effectiveness and efficiency of our proposed approaches on real datasets.
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        
+            
+           
             
         </div>
+    
 
         
         
-            <h2 class="heading">Preprint</h2>
-
-            <div class="publication-block">
-                <h1 class="heading">2020</h1>
+        
             
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-1">
-                                <span class="serial">
-                                <strong> [P2]  </strong><br />
-                            </span>
-    
-                        </div>
-                        <div class="col-md-8">
-                            <h3>Justicia: A Stochastic SAT Approach to Formally
-                                Verify Fairness</h3>
-                            <h4> <strong>Bishwamittra Ghosh</strong>, Debabrota Basu, Kuldeep S. Meel</h4> 
-                            <h4>arXiv preprint, 2020.</h4>
-                            <button type="button" class="btn  btn-info collapsed" data-toggle="collapse" data-target="#lexr">Abstract</button>
-                                <a href="https://arxiv.org/pdf/2009.06516.pdf" class="btn btn-info" role="button">PDF</a>
-                                <a href="publication/justicia/paper.bib" class="btn btn-info" role="button"	>Cite</a>
-                                <!-- <a href="publication/fssgq-ghosh-slides.pdf" class="btn btn-info" role="button"	>Slides</a> -->
-                                <!-- <a href="https://github.com/bishwamittra/LEXR" class="btn btn-info" role="button"	>Code</a> -->
-                                <!-- <a href="https://www.dropbox.com/s/7njeqwajgtb6696/lexr.mov?dl=0" class="btn btn-info" role="button"	>Video</a> -->
-                                <!-- <a href="https://www.dropbox.com/s/01qg1x3xt7as7n0/lexr.pptx?dl=0" class="btn btn-info" role="button"	>Slides</a> -->
-                                                                
-            
-                            <div id="lexr" class="collapse">
-                                <p align="justify">
-                                    As a technology ML is oblivious to societal good or bad, and thus, the field of fair machine
-                                    learning has stepped up to propose multiple mathematical definitions, algorithms, and
-                                    systems to ensure different notions of fairness in ML applications. Given the multitude of
-                                    propositions, it has become imperative to formally verify the fairness metrics satisfied by
-                                    different algorithms on different datasets. In this paper, we propose a stochastic satisfiability
-                                    (SSAT) framework, Justicia, that formally verifies different fairness measures of supervised
-                                    learning algorithms with respect to the underlying data distribution. We instantiate Justicia
-                                    on multiple classification and bias mitigation algorithms, and datasets to verify different
-                                    fairness metrics, such as disparate impact, statistical parity, and equalized odds. Justicia is
-                                    scalable, accurate, and operates on non-Boolean and compound sensitive attributes unlike
-                                    existing distribution-based verifiers, such as FairSquare and VeriFair. Being distribution-based
-                                    by design, Justicia is more robust than the verifiers, such as AIF360, that operate
-                                    on specific test samples. We also theoretically bound the finite-sample error of the verified
-                                    fairness measure.
-                                </p>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-1">
-                                <span class="serial">
-                                <strong> [P1]  </strong><br />
-                            </span>
-    
-                        </div>
-                        <div class="col-md-8">
-                            <h3>A Formal Language Approach to Explaining RNNs</h3>
-                            <h4> <strong>Bishwamittra Ghosh</strong>, Daniel Neider</h4> 
-                            <h4>arXiv preprint, 2020.</h4>
-                            <button type="button" class="btn  btn-info collapsed" data-toggle="collapse" data-target="#lexr">Abstract</button>
-                                <a href="https://arxiv.org/pdf/2006.07292.pdf" class="btn btn-info" role="button">PDF</a>
-                                <a href="publication/lexr/paper.bib" class="btn btn-info" role="button"	>Cite</a>
-                                <!-- <a href="publication/fssgq-ghosh-slides.pdf" class="btn btn-info" role="button"	>Slides</a> -->
-                                <a href="https://github.com/bishwamittra/LEXR" class="btn btn-info" role="button"	>Code</a>
-                                <a href="https://www.dropbox.com/s/7njeqwajgtb6696/lexr.mov?dl=0" class="btn btn-info" role="button"	>Video</a>
-                                <a href="https://www.dropbox.com/s/01qg1x3xt7as7n0/lexr.pptx?dl=0" class="btn btn-info" role="button"	>Slides</a>
-                                                                
-            
-                            <div id="lexr" class="collapse">
-                                <p align="justify">
-                                    This paper presents LEXR, a framework for explaining the decision making of recurrent neural networks (RNNs) using a formal description language called Linear Temporal Logic (LTL). LTL is the de facto standard for the specification of temporal properties in the context of formal verification and features many desirable properties that make the generated explanations easy for humans to interpret: it is a descriptive language, it has a variable-free syntax, and it can easily be translated into plain English. To generate explanations, LEXR follows the principle of counterexample-guided inductive synthesis and combines Valiant's probably approximately correct learning (PAC) with constraint solving. We prove that LEXR's explanations satisfy the PAC guarantee (provided the RNN can be described by LTL) and show empirically that these explanations are more accurate and easier-to-understand than the ones generated by recent algorithms that extract deterministic finite automata from RNNs.
-                                </p>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-    
-            </div>
-
-
-            <h2 class="heading">Journal Papers</h2>
-
-            <div class="publication-block">
-                <h1 class="heading">2018</h1>
-            
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-1">
-                                <span class="serial">
-                                <strong> [J1]  </strong><br />
-                            </span>
-    
-                        </div>
-                        <div class="col-md-8">
-                            <h3>The Flexible Socio Spatial Group Queries	</h3>
-                            <h4> <strong>Bishwamittra Ghosh</strong>, Mohammed Eunus Ali, Farhana M. Choudhury,</h4> 
-    
-                            <h4>Sajid Hasan Apon, Timos Sellis, Jianxin Li.</h4>
-                            <h4>Proceedings of the VLDB Endowment (PVLDB), 2019.</h4>
-                            <button type="button" class="btn  btn-info collapsed" data-toggle="collapse" data-target="#fssgq">Abstract</button>
-                                <a href="publication/fssgq-ghosh.pdf" class="btn btn-info" role="button">PDF</a>
-                                <a href="publication/fssgq-ghosh.bib" class="btn btn-info" role="button"	>Cite</a>
-                                <a href="publication/fssgq-ghosh-slides.pdf" class="btn btn-info" role="button"	>Slides</a>
-
-            
-                            <div id="fssgq" class="collapse">
-                                <p align="justify">
-                                    A socio spatial group query finds a group of users who possess strong social connections with each other and have the minimum aggregate spatial distance to a meeting point. Existing studies limit the socio spatial group search to either finding best group of a fixed size for a single meeting location, or a single group of a fixed size w.r.t. multiple meeting locations. However, it is highly desirable to consider multiple meeting locations/POIs in a real-life scenario in order to organize impromptu activities of user groups of various sizes. In this paper, we propose Top k Flexible Socio Spatial Group Query (Top k-FSSGQ) to find and rank the top k groups w.r.t. multiple POIs where each group follows the minimum social connectivity constraints. We devise a ranking function to measure the group score by combining social closeness, spatial distance, and group size, which provides the flexibility of choosing groups of different sizes under different constraints. To effectively process the Top k-FSSGQ, we first develop an Exact approach that ensures early termination of the search based on the derived upper bounds. We prove that the problem is NP-hard, hence we first present a heuristic based approximation algorithm to effectively select members in intermediate solution groups based on the social connectivity of the users. Later we design a Fast Approximate approach based on the relaxed social and spatial bounds, and connectivity constraint heuristic. Experimental studies have verified the effectiveness and efficiency of our proposed approaches on real datasets.
-                                </p>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-    
-            </div>
-
-
             
         
         <p align="middle"><a href="publications.html">All publications...</a>.</p>
