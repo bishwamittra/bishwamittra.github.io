@@ -1,4 +1,4 @@
-PAPERNAME=bghosh
+PAPERNAME=bghosh_research_statement
 TEXFILES =  *.tex *.bib *.sty
 
 all:
