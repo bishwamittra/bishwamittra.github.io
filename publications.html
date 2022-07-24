@@ -466,12 +466,46 @@
     </div>
 
 
-    <!-- <h2 class="heading">Preprint</h2>
+    <h2 class="heading">Preprint</h2>
 
             
-            
+    <div class="publication-block">
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">
+                        <span class="serial">
+                        <strong> [P1]  </strong><br />
+                    </span>
 
-            <div class="publication-block">
+                </div>
+                <div class="col-md-8">
+                    <h3>“How Biased is Your Feature?”: Computing Fairness Influence Functions with Global Sensitivity Analysis</h3>
+                    <h4> <strong>Bishwamittra Ghosh</strong>, Debabrota Basu, Kuldeep S. Meel</h4> 
+                        <h4>arXiv preprint, 2022.</h4>
+                    <button type="button" class="btn btn-primary collapsed" data-toggle="collapse" data-target="#fairXplainer">Abstract</button>
+                        <a href="https://arxiv.org/pdf/2206.00667.pdf" class="btn btn-primary" role="button">PDF</a>
+                        <a href="publication/fairXplainer/paper.bib" class="btn btn-primary" role="button"	>Cite</a>
+                        <!-- <a href="publication/fssgq-ghosh-slides.pdf" class="btn btn-primary" role="button"	>Slides</a> -->
+                        <!-- <a href="https://github.com/bishwamittra/LEXR" class="btn btn-primary" role="button"	>Code</a> -->
+                        <!-- <a href="https://www.dropbox.com/s/7njeqwajgtb6696/lexr.mov?dl=0" class="btn btn-primary" role="button"	>Video</a> -->
+                        <!-- <a href="https://www.dropbox.com/s/01qg1x3xt7as7n0/lexr.pptx?dl=0" class="btn btn-primary" role="button"	>Slides</a> -->
+                                                        
+    
+                    <div id="fairXplainer" class="collapse">
+                        <p align="justify">
+                            Fairness in machine learning has attained significant focus due to the widespread application of machine learning in high-stake decision-making tasks. Unless regulated with a fairness objective, machine learning classifiers might demonstrate unfairness/bias towards certain demographic populations in the data. Thus, the quantification and mitigation of the bias induced by classifiers have become a central concern. In this paper, we aim to quantify the influence of different features on the bias of a classifier. To this end, we propose a framework of Fairness Influence Function (FIF), and compute it as a scaled difference of conditional variances in the prediction of the classifier. We also instantiate an algorithm, FairXplainer, that uses variance decomposition among the subset of features and a local regressor to compute FIFs accurately, while also capturing the intersectional effects of the features. Our experimental analysis validates that FairXplainer captures the influences of both individual features and higher-order feature interactions, estimates the bias more accurately than existing local explanation methods, and detects the increase/decrease in bias due to affirmative/punitive actions in the classifier.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    
+    </div>
+
+
+            <!-- <div class="publication-block">
                 <h1 class="heading">2020</h1>
 
                 <div class="container">
@@ -540,7 +574,7 @@
                         </div>
                         
                     </div>
-                </div>
+                </div>             
     
             </div> -->
 
