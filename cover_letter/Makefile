@@ -8,5 +8,5 @@ all:
 	pdflatex $(PAPERNAME)
 	rm -f *.ps $(PAPERNAME).dvi *.aux *.log *.blg *.bbl *~ *.ilg *.idx *.out *.in *.synctex.gz
 clean:
-	rm -f *.ps $(PAPERNAME).dvi *.aux *.log *.blg *.bbl *~ *.ilg *.idx *.out *.in *.synctex.gz
+	rm -f *.ps $(PAPERNAME).dvi *.pdf *.aux *.log *.blg *.bbl *~ *.ilg *.idx *.out *.in *.synctex.gz
 
