@@ -128,6 +128,59 @@
 
                     </div>
                     <div class="col-md-8">
+                        <h3>Algorithmic Fairness Verification with Graphical Models </h3>
+                        <h4> <strong>Bishwamittra Ghosh</strong>, Debabrota Basu, Kuldeep S. Meel</h4> 
+                        <h4>Proceedings of AAAI, 2022.</h4>    
+                        <button type="button" class="btn btn-primary collapsed" data-toggle="collapse" data-target="#fvgm">Abstract</button>
+                            <a href="https://arxiv.org/pdf/2109.09447.pdf" class="btn btn-primary" role="button">PDF</a>
+                            <a href="publication/fvgm/paper.bib" class="btn btn-primary" role="button"	>Cite</a>
+                            <!-- <a href="publication/fssgq-ghosh-slides.pdf" class="btn btn-primary" role="button"	>Slides</a> -->
+                            <a href="https://github.com/meelgroup/justicia" class="btn btn-primary" role="button"	>Code</a>
+                            <!-- <a href="https://www.dropbox.com/s/7njeqwajgtb6696/lexr.mov?dl=0" class="btn btn-primary" role="button"	>Video</a> -->
+                            <!-- <a href="https://www.dropbox.com/s/01qg1x3xt7as7n0/lexr.pptx?dl=0" class="btn btn-primary" role="button"	>Slides</a> -->
+                                                            
+        
+                        <div id="fvgm" class="collapse">
+                            <p align="justify">
+                                In recent years, machine learning (ML) algorithms have been deployed in safety-critical and 
+                                high-stake decision-making, where the fairness of algorithms is of paramount importance. 
+                                Fairness in ML centers on detecting bias towards certain demographic populations induced 
+                                by an ML classifier and proposes algorithmic solutions to mitigate the bias with respect 
+                                to different fairness definitions. To this end, several fairness verifiers have been proposed 
+                                that compute the bias in the prediction of an ML classifier -- essentially beyond a 
+                                finite dataset -- given the probability distribution of input features. 
+                                In the context of verifying linear classifiers, existing fairness verifiers are limited 
+                                by accuracy due to imprecise modelling of correlations among features and scalability
+                                 due to restrictive formulations of the classifiers as SSAT or SMT formulas or by 
+                                 sampling. 
+                            </p>
+
+                            <p align="justify">
+                                In this paper, we propose an efficient fairness verifier, called FVGM, 
+                                 that encodes the correlations among features as a Bayesian network. In contrast to 
+                                 existing verifiers, FVGM proposes a stochastic subset-sum based approach for verifying 
+                                 linear classifiers. Experimentally, we show that FVGM leads to an accurate and 
+                                 scalable assessment for more diverse families of fairness-enhancing algorithms, 
+                                 fairness attacks, and group/causal fairness metrics than the state-of-the-art. 
+                                 We also demonstrate that FVGM facilitates the computation of fairness influence functions 
+                                 as a stepping stone to detect the source of bias induced by subsets of features.
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1">
+                            <span class="serial">
+                            <strong> [7]  </strong><br />
+                        </span>
+
+                    </div>
+                    <div class="col-md-8">
                         <h3>Efficient Learning of Interpretable Classification Rules </h3>
                         <h4> <strong>Bishwamittra Ghosh</strong>, Dmitry Malioutov, Kuldeep S. Meel.</h4> 
                         <h4>Proceedings of JAIR, 2022.</h4>    
@@ -182,99 +235,19 @@
             </div>
 
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-1">
-                            <span class="serial">
-                            <strong> [7]  </strong><br />
-                        </span>
-
-                    </div>
-                    <div class="col-md-8">
-                        <h3>Algorithmic Fairness Verification with Graphical Models </h3>
-                        <h4> <strong>Bishwamittra Ghosh</strong>, Debabrota Basu, Kuldeep S. Meel</h4> 
-                        <h4>Proceedings of AAAI, 2022.</h4>    
-                        <button type="button" class="btn btn-primary collapsed" data-toggle="collapse" data-target="#fvgm">Abstract</button>
-                            <a href="https://arxiv.org/pdf/2109.09447.pdf" class="btn btn-primary" role="button">PDF</a>
-                            <a href="publication/fvgm/paper.bib" class="btn btn-primary" role="button"	>Cite</a>
-                            <!-- <a href="publication/fssgq-ghosh-slides.pdf" class="btn btn-primary" role="button"	>Slides</a> -->
-                            <a href="https://github.com/meelgroup/justicia" class="btn btn-primary" role="button"	>Code</a>
-                            <!-- <a href="https://www.dropbox.com/s/7njeqwajgtb6696/lexr.mov?dl=0" class="btn btn-primary" role="button"	>Video</a> -->
-                            <!-- <a href="https://www.dropbox.com/s/01qg1x3xt7as7n0/lexr.pptx?dl=0" class="btn btn-primary" role="button"	>Slides</a> -->
-                                                            
-        
-                        <div id="fvgm" class="collapse">
-                            <p align="justify">
-                                In recent years, machine learning (ML) algorithms have been deployed in safety-critical and 
-                                high-stake decision-making, where the fairness of algorithms is of paramount importance. 
-                                Fairness in ML centers on detecting bias towards certain demographic populations induced 
-                                by an ML classifier and proposes algorithmic solutions to mitigate the bias with respect 
-                                to different fairness definitions. To this end, several fairness verifiers have been proposed 
-                                that compute the bias in the prediction of an ML classifier -- essentially beyond a 
-                                finite dataset -- given the probability distribution of input features. 
-                                In the context of verifying linear classifiers, existing fairness verifiers are limited 
-                                by accuracy due to imprecise modelling of correlations among features and scalability
-                                 due to restrictive formulations of the classifiers as SSAT or SMT formulas or by 
-                                 sampling. 
-                            </p>
-
-                            <p align="justify">
-                                In this paper, we propose an efficient fairness verifier, called FVGM, 
-                                 that encodes the correlations among features as a Bayesian network. In contrast to 
-                                 existing verifiers, FVGM proposes a stochastic subset-sum based approach for verifying 
-                                 linear classifiers. Experimentally, we show that FVGM leads to an accurate and 
-                                 scalable assessment for more diverse families of fairness-enhancing algorithms, 
-                                 fairness attacks, and group/causal fairness metrics than the state-of-the-art. 
-                                 We also demonstrate that FVGM facilitates the computation of fairness influence functions 
-                                 as a stepping stone to detect the source of bias induced by subsets of features.
-                            </p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
+            
         </div>
         
 
     <div class="publication-block">
         <h1 class="heading">2021</h1>
 
+        
         <div class="container">
             <div class="row">
                 <div class="col-md-1">
                         <span class="serial">
                         <strong> [6]  </strong><br />
-                    </span>
-
-                </div>
-                <div class="col-md-8">
-                    <h3>Social-Spatial Group Queries with Keywords</h3>
-                    <h4> Sajid Hasan Apon, Mohammed Eunus Ali, <strong>Bishwamittra Ghosh</strong>, Timos Sellis</h4> 
-                    <h4>ACM Transactions on Spatial Algorithms and Systems (TSAS), 2021.</h4>
-                    <button type="button" class="btn btn-primary collapsed" data-toggle="collapse" data-target="#sskgq">Abstract</button>
-                        <a href="https://dl.acm.org/doi/full/10.1145/3475962?accessTab=true" class="btn btn-primary" role="button">PDF</a>
-                        <a href="publication/sskgq/paper.bib" class="btn btn-primary" role="button"	>Cite</a>
-                        <!-- <a href="publication/justicia/presentation.pdf" class="btn btn-primary" role="button"	>Slides</a> -->
-                        <!-- <a href="publication/justicia/poster.pdf" class="btn btn-primary" role="button"	>Poster</a> -->
-                        <!-- <a href="https://github.com/meelgroup/justicia" class="btn btn-primary" role="button"	>Code</a> -->
-                        <!-- <a href="https://studio.slideslive.com/web_recorder/share/20210108T082957Z__AAAI__0678__justicia-a-stochastic-sat-app?s=b9277b7b-366b-4627-9380-66973c315fee" class="btn btn-primary" role="button"	>Video</a> -->
-                                                        
-    
-                    <div id="sskgq" class="collapse">
-                        <p align="justify">
-                            Social networks with location enabling technologies, also known as geo-social networks, allow users to share their location-specific activities and preferences through check-ins. A user in such a geo-social network can be attributed to an associated location (spatial), her preferences as keywords (textual), and the connectivity (social) with her friends. The fusion of social, spatial, and textual data of a large number of users in these networks provide an interesting insight for finding meaningful geo-social groups of users supporting many real-life applications, including activity planning and recommendation systems. In this article, we introduce a novel query, namely, Top-k Flexible Socio-Spatial Keyword-aware Group Query (SSKGQ), which finds the best k groups of varying sizes around different points of interest (POIs), where the groups are ranked based on the social and textual cohesiveness among members and spatial closeness with the corresponding POI and the number of members in the group. We develop an efficient approach to solve the SSKGQ problem based on our theoretical upper bounds on distance, social connectivity, and textual similarity. We prove that the SSKGQ problem is NP-Hard and provide an approximate solution based on our derived relaxed bounds, which run much faster than the exact approach by sacrificing the group quality slightly. Our extensive experiments on real data sets show the effectiveness of our approaches in different real-life settings.
-                        </p>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-1">
-                        <span class="serial">
-                        <strong> [5]  </strong><br />
                     </span>
 
                 </div>
@@ -314,6 +287,38 @@
                 
             </div>
         </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">
+                        <span class="serial">
+                        <strong> [5]  </strong><br />
+                    </span>
+
+                </div>
+                <div class="col-md-8">
+                    <h3>Social-Spatial Group Queries with Keywords</h3>
+                    <h4> Sajid Hasan Apon, Mohammed Eunus Ali, <strong>Bishwamittra Ghosh</strong>, Timos Sellis</h4> 
+                    <h4>ACM Transactions on Spatial Algorithms and Systems (TSAS), 2021.</h4>
+                    <button type="button" class="btn btn-primary collapsed" data-toggle="collapse" data-target="#sskgq">Abstract</button>
+                        <a href="https://dl.acm.org/doi/full/10.1145/3475962?accessTab=true" class="btn btn-primary" role="button">PDF</a>
+                        <a href="publication/sskgq/paper.bib" class="btn btn-primary" role="button"	>Cite</a>
+                        <!-- <a href="publication/justicia/presentation.pdf" class="btn btn-primary" role="button"	>Slides</a> -->
+                        <!-- <a href="publication/justicia/poster.pdf" class="btn btn-primary" role="button"	>Poster</a> -->
+                        <!-- <a href="https://github.com/meelgroup/justicia" class="btn btn-primary" role="button"	>Code</a> -->
+                        <!-- <a href="https://studio.slideslive.com/web_recorder/share/20210108T082957Z__AAAI__0678__justicia-a-stochastic-sat-app?s=b9277b7b-366b-4627-9380-66973c315fee" class="btn btn-primary" role="button"	>Video</a> -->
+                                                        
+    
+                    <div id="sskgq" class="collapse">
+                        <p align="justify">
+                            Social networks with location enabling technologies, also known as geo-social networks, allow users to share their location-specific activities and preferences through check-ins. A user in such a geo-social network can be attributed to an associated location (spatial), her preferences as keywords (textual), and the connectivity (social) with her friends. The fusion of social, spatial, and textual data of a large number of users in these networks provide an interesting insight for finding meaningful geo-social groups of users supporting many real-life applications, including activity planning and recommendation systems. In this article, we introduce a novel query, namely, Top-k Flexible Socio-Spatial Keyword-aware Group Query (SSKGQ), which finds the best k groups of varying sizes around different points of interest (POIs), where the groups are ranked based on the social and textual cohesiveness among members and spatial closeness with the corresponding POI and the number of members in the group. We develop an efficient approach to solve the SSKGQ problem based on our theoretical upper bounds on distance, social connectivity, and textual similarity. We prove that the SSKGQ problem is NP-Hard and provide an approximate solution based on our derived relaxed bounds, which run much faster than the exact approach by sacrificing the group quality slightly. Our extensive experiments on real data sets show the effectiveness of our approaches in different real-life settings.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
 
     </div>
 
