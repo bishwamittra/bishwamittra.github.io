@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+ <!-- change made in online -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fairness Verification in Machine Learning: A Formal Methods Approach</title>
+	<link rel="shortcut icon" href="images/pp.jpg" type="image/x-icon">
+	<link rel="icon" href="images/pp.jpg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+        </script>
+
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+      <link href="css/styles.css" rel="stylesheet">
+    
+</head>
+
+
+<body>
+    
+
+    <div id="mobile-menu-open" class="shadow-large">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <!-- End #mobile-menu-toggle -->
+    <header>
+        <div id="mobile-menu-close">
+            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <ul id="menu" class="shadow">
+            <li>
+                <a href="index.html" onClick="window.location='index.html'"">Home</a>
+            </li>
+            <li>
+                    <a href="publications.html" onClick="window.location='publications.html'"">Publications</a>
+            </li>
+            <li>
+                <a href="education.html" onClick="window.location='education.html'"">Education</a>
+            </li>
+            <li>
+                <a href="blog.html" onClick="window.location='blog.html'"">Blog</a>
+            </li>
+            <li>
+                <a href="activities.html" onClick="window.location='activities.html'"">Activities</a>
+            </li>
+            <li>
+                    <a href="news.html" onClick="window.location='news.html'"">News</a>
+            </li>
+            
+            
+            
+        </ul>
+    </header>
+    
+    <br>
+    
+    <div id="projects" class="background-alt">
+            <!-- <h2 class="heading">Blog</h2> -->
+            <div class="container">
+                <div class="row">
+                    <div class="no-image">
+                        <div class="project-info">
+                            <h1>Fairness Verification in Machine Learning: A Formal Methods Approach</h1>
+                            <h3><a href="index.html">Bishwamittra Ghosh</a></font></h3>
+
+                            <h4 align="center"><a href="https://arxiv.org/pdf/2009.06516.pdf">[Paper 1]</a> <a href="https://arxiv.org/pdf/2109.09447.pdf">[Paper 2]</a> <a href="https://github.com/meelgroup/justicia">[Code]</a> </h4>
+                            <br>
+                            <br>
+                            <p align="justify" >
+
+                                    The last decades have witnessed a significant success of machine learning as a predictive system. Machine learning
+                                    is now applied in different safety-critical domains, such as education, law, medicine, and transportation.
+                                    In these domains, it is important that the deployed model is making fair decisions with respect to different
+                                    demographic populations. Since machine learning is oblivious to societal good or bad, the field of <u><a href="https://en.wikipedia.org/wiki/Fairness_(machine_learning)">fairness in machine learning</a></u> has proposed
+                                    different fairness definitions and algorithms to tackle the fairness challenge. In this 
+                                    blog, our aim is to verify different fairness definitions under then lens of  different fairness algorithms in a single framework. 
+                                    At the end of this blog, the reader will learn how formal methods can be applied for fairness verification in machine learning.
+                            </p>
+                            
+                            <br>
+                            <h2 align="left"> <font color="#148f77">Example of (Un)Fairness in Machine Learning</font></h2>        
+                            <p align="justify" >
+                                    We consider a simple classification task with the object or deciding whether an individual is 
+                                    eligible for health insurance or not. The classifier takes three features as input: {fitness, income, age}.
+                                    We categorize the features into two types: sensitive features $ \mathbf{A} = \{{\text{age}}\}$ and 
+                                    nonsensitive features $ \mathbf{X} = \{\text{fitness, income}\}$. Intuitively, our goal is to learn a classifier
+                                    that does not discriminate based on a sensitive feature. Based
+                                    on the value of the sensitive feature, we consider two different sensitive groups: younger group with age $ < 40 $ and elderly group with age $ \ge 40 $. 
+                                    In the following, we present a decision tree classifier with a single node, which seems to be unfair
+                                    at the first glance.
+                            </p>
+                            
+                            <img src="images/justicia/dt1.png" class="img-fluid" alt="Decision Tree 1" align="center" style="max-width:30%;
+                            max-height:80%;">
+                            <img src="images/justicia/prob_dt1.png" class="img-fluid" alt="Decision Tree 1" align="center" style="max-width:25%;
+                            max-height:60%;">
+                            <br>
+
+
+
+                            
+                            
+                            <p align="justify"> 
+                                    This classifier makes a positive prediction when the individual belongs to the younger group and a negative prediction
+                                    otherwise. Thus, as we plot the probability of positive prediction of the classifier separately for the 
+                                    two sensitive groups, we see that the younger group has a probability of $ 1 $ for getting positive prediction while
+                                    the elderly group has $ 0 $ probability. Based on the outcome of the prediction, there are different ways to quantify the unfairness/bias of a classifier. 
+                                    We refer to the disparate impact notion of fairness metric in the following.
+                            </p>
+                            
+                            \[ \text{Disparate impact} =\frac{\min_{\mathbf{a}} \Pr[\widehat{Y} = 1 | \mathbf{A} = \mathbf{a}]}{\max_{\mathbf{a}} \Pr[\widehat{Y} = 1 | \mathbf{A}= \mathbf{a}]} = \frac{0}{1} = 0\]
+
+                            
+                            <p align="justify" >
+                                Intuitively, as the disparate impact ratio is close to $ 1 $, the classifier becomes more fair. In our case, 
+                                unfortunately the classifier demonstrates the worst fairness results since the ratio is $ 0 $. Let us add few more nodes to 
+                                the decision tree classifier and see if we can improve fairness.
+                            </p>
+           
+                            <img src="images/justicia/dt2.png" class="img-fluid" alt="Decision Tree 1" align="center" style="max-width:50%;
+                            max-height:80%;">
+                            <img src="images/justicia/prob_dt2.png" class="img-fluid" alt="Decision Tree 1" align="center" style="max-width:25%;
+                            max-height:60%;">
+                            <br>
+
+                            <p align="justify"> 
+                                In the last decision tree, we see that the probability of positive prediction is almost equal for the two 
+                                sensitive groups, with younger group being slightly favored.
+                            </p>
+                            \[ \text{Disparate impact} =\frac{\min_{\mathbf{a}} \Pr[\widehat{Y} = 1 | \mathbf{A} = \mathbf{a}]}{\max_{\mathbf{a}} \Pr[\widehat{Y} = 1 | \mathbf{A}= \mathbf{a}]} = \frac{0.43}{0.46} = 0.93\]
+                            
+                            <p align="justify"> 
+                            Next, we discuss how to verify the fairness of a classifier, such as disparate impact, given the distribution of features.
+                            </p>
+
+                            <br>
+                            <h2 align="left"> <font color="#148f77">Problem Formulation</font></h2>
+
+                            <p align="justify">
+                                Given a binary classifier $ \mathcal{M} : (\mathbf{X}, \mathbf{A}) \rightarrow \widehat{Y} \in \{0,1\} $, the 
+                                distribution of features $ (\mathbf{X}, \mathbf{A}) \sim \mathcal{D}  $, and a fairness threshold $ \delta \in [0,1] $,
+                                our objective is to check whether the fairness of the classifier given the distribution, denoted by $  f(\mathcal{M}, \mathcal{D}) $,
+                                satisfies the desired level of fairness. Formally, we verify the following:
+                            \[
+                                f(\mathcal{M}, \mathcal{D}) \ge \delta
+                            \]
+
+                            In the literature, this problem is known as <font color="blue">probabilistic fairness verification</font>. This problem is different from the
+                            typical approach of evaluating the fairness of a classifier from a finite sampled dataset. Probabilistic fairness
+                            verification provides a principled approach to quantify the fairness of the classifier beyond finite samples. Such a 
+                            fairness verifier can be deployed as a auditor for fairness violation in practical system, as demonstrated in this <a href="https://arxiv.org/pdf/2109.09447.pdf">paper</a>.
+                            </p>
+                            
+                        <!-- End .project-info -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    
+        <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-5 copyright">
+                        </div>
+                        <div class="col-sm-2 top">
+                            <span id="to-top">
+                                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End footer -->
+        
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="js/scripts.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+   
+
+
+    
+
+</body>
+
+</html>
