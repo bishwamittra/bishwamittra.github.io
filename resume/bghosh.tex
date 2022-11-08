@@ -1,244 +1,222 @@
-\documentclass[a4paper,10pt,final]{article}
-\usepackage[top=2cm,left=2cm,right=2cm,bottom=2cm]{geometry}% margins
-\usepackage{graphicx}
-%\usepackage{helvet}
-%\renewcommand{\familydefault}{\sfdefault}
-\pagestyle{empty}					% no pagenumbering
-\setlength{\parindent}{0pt}			% no paragraph indentation
-\usepackage{flowfram}										% column 										% figures
-\usepackage{url}											% URLs
-\usepackage[usenames,dvipsnames]{xcolor}					% color
-\usepackage{multicol}										% columns 
-\usepackage{tikz}
-\setlength{\multicolsep}{0pt}
-\usepackage{paralist}										% compact lists
-\usepackage{tikz}
-\setlength{\vcolumnsep}{\baselineskip}
-\setlength{\columnsep}{\vcolumnsep}
-\usepackage{enumerate}
-\usepackage{etaremune}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% "ModernCV" CV and Cover Letter
+% LaTeX Template
+% Version 1.3 (29/10/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Xavier Danaux (xdanaux@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template requires the moderncv.cls and .sty files to be in the same 
+% directory as this .tex file. These files provide the resume style and themes 
+% used for structuring the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
 
+\documentclass[11pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
 
-\newcommand{\Sep}{\vspace{1.5em}}
-\newcommand{\SmallSep}{\vspace{0.5em}}
-\usepackage[hidelinks]{hyperref}
+\moderncvstyle{classic} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage{comment}
+
+\usepackage[scale=0.8]{geometry} % Reduce document margins
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
 
 \newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 \newcommand{\green}[1]{\textcolor{green}{#1}}
 
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Bishwamittra} % Your first name
+\familyname{Ghosh} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+%\title{Curriculum Vitae}
+\address{Ph.D. Candidate, School of Computing}{National University of Singapore}
+%\mobile{+65 8599 0160}
+%\phone{(000) 111 1112}
+%\fax{(000) 111 1113}
+\email{bghosh@u.nus.edu}
+\homepage{bishwamittra.github.io/}{bishwamittra.github.io} % The first argument is the url for the clickable link, the second argument is the url displayed in the template - this allows special characters to be displayed such as the tilde in this example
+\extrainfo{\href{https://dblp.uni-trier.de/pers/hd/g/Ghosh:Bishwamittra}{dblp}, \href{https://scholar.google.com/citations?user=xO4PpdAAAAAJ\&hl=en\&oi=ao}{scholar}}
+%\photo[70pt][0.4pt]{pictures/picture} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+%\quote{"A witty and playful quotation" - John Smith}
+
+%----------------------------------------------------------------------------------------
+
 \begin{document}
-	
-	\begin{center}
-		\Huge \textbf{Bishwamittra Ghosh}\\
-		\vspace{0.2em}	
-%		\Large \centerline{ \textbf{Curriculum Vitae}}
-	\end{center}
-	
-	\Sep
-	\Large { \textbf{Personal Details}}\\
-	\noindent\rule{\textwidth}{1pt}
-	\normalsize 
-	 \textbf{Contact Address:} 205 Bukit Batok Street 21, \#02-46, Singapore, 650205\\
-	\textbf{Email:} bghosh@u.nus.edu  \\
-	\textbf{Phone:} $ +65 85990160 $\\
-	\textbf{Date of Birth:}  $ 28 $  November  $ 1995 $ \\
-	\textbf{Website: \blue{\url{https://bishwamittra.github.io}}} 
-%	\textbf{Place of Birth:} Satkhira, Bangladesh\\
-%	\textbf{Citizenship:} Bangladesh\\
 
-	\Sep	
-\Large { \textbf{Research Interest}}\\
-\noindent\rule{\textwidth}{1pt}
-\normalsize
-My research interest is in deploying machine learning in high-stake decision-making. I apply formal methods to verify and improve fairness, interpretability, and explainability in machine learning. 
-	
-	\Sep	
-\Large { \textbf{Education}}\\
-\noindent\rule{\textwidth}{1pt}
-\normalsize
-\textbf{National University of Singapore, Singapore}
-\hspace*{\fill} 2018  - Present\\
-Ph.D.\ candidate, School of Computing\\
-Adviser: \href{https://www.comp.nus.edu.sg/~meel/}{Dr.\ Kuldeep S.\ Meel}
+\begin{comment}
+%----------------------------------------------------------------------------------------
+%	COVER LETTER
+%----------------------------------------------------------------------------------------
 
-\SmallSep
-\textbf{Bangladesh University of Engineering and Technology, Bangladesh}
-\hspace*{\fill} 2013  -  2017\\
-BSc.\ with Honors degree in Computer Science and Engineering\\
-Adviser: Dr. Mohammed Eunus Ali
-
-%\Sep
-%\Large { \textbf{Research Experience}}\\
-%\noindent\rule{\textwidth}{1pt}
-%\normalsize
-%\textbf{National University of Singapore, Singapore} \hspace*{\fill} 2018  - Present\\
-%\begin{itemize}
-%	\item Designed an incremental mini-batch training approach for learning interpretable classification rules in a MaxSAT-based framework
-%	\item Designed an efficient combinatorial framework for learning a generalization of CNF/DNF classification rules
-%	\item Formulated a MaxSAT-based framework for solving the combinatorial variant of group testing problem in collaboration with a Master's student
-%	\item Presented published works in AIES-19, IJCAI-19, VLDB-19, and CP-19
-%\end{itemize} 
-%
-%\SmallSep
-%\textbf{Bangladesh University of Engineering and Technology, Bangladesh} \hspace*{\fill} 2016  - 2017\\
-%\begin{itemize}
-%	\item Designed a flexible socio-spatial group query to rank groups in the socio-spatial graph based on the social, spatial and group attributes
-%\end{itemize} 
-
-
-%\newpage
-%\Sep
-%\Large { \textbf{Awards}}\\
-%\noindent\rule{\textwidth}{1pt}
-%\normalsize
-%\begin{itemize}
-%	\item  \textbf{NUS Research Scholarship}\\
-%	National University of Singapore
-%	\item \textbf{Academic Merit Scholarship }
-%	\\Dean's award,\\
-%	Bangladesh University of Engineering and Technology
-%	\item \textbf{Math Olympiad}\\
-%	National and regional winner in higher secondary, secondary, and junior levels
-%	\item \textbf{Scholarship}\\
-%	Board scholarship in HSC, SSC, junior, and primary
-%\end{itemize}
-
-
-\Sep
-\Large { \textbf{Publications}}\footnote{sorted by publication year}\\
-\noindent\rule{\textwidth}{1pt}
-
-\SmallSep
-\large { \textbf{Conference Papers}}
-\normalsize
-
-
-	
-
-	
-	
-\SmallSep
-
-	\begin{etaremune}
-		
-		\item \href{https://arxiv.org/pdf/2109.09447.pdf}{\blue{Algorithmic Fairness Verification with Graphical Models}} \\
-		\textbf{Bishwamittra Ghosh}, Debabrota Basu, Kuldeep S. Meel\\
-		Proceedings of AAAI, 2022
-		
-		
-		
-		\item \href{https://arxiv.org/pdf/2009.06516.pdf}{\blue{Justicia: A Stochastic SAT Approach to Formally Verify Fairness}} \\
-		\textbf{Bishwamittra Ghosh}, Debabrota Basu, Kuldeep S. Meel\\
-		Proceedings of AAAI, 2021
-		
-		
-	
-		
-		\item 	\href{https://bishwamittra.github.io/publication/aaai_2020/AAAI-CiampiconiL.690.pdf}{\blue{A MaxSAT-based Framework for Group Testing}} \\
-		Lorenzo Ciampiconi, \textbf{Bishwamittra Ghosh}, Jonathan Scarlett, Kuldeep S. Meel\\
-		Proceedings of AAAI, 2020
-		
-		\item \href{https://bishwamittra.github.io/publication/ecai_2020/paper.pdf}{\blue{Classification Rules in Relaxed Logical Form
-		}} \\
-		\textbf{Bishwamittra Ghosh}, Dmitry Malioutov, Kuldeep S. Meel\\
-		Proceedings of ECAI, 2020
-		
-		\item \href{https://bishwamittra.github.io/publication/imli-ghosh.pdf}{\blue{IMLI: An Incremental Framework for MaxSAT-Based Learning of Interpretable Classification Rules}}\\
-		\textbf{Bishwamittra Ghosh}, Kuldeep S. Meel\\
-		Proceedings of AIES, 2019
-		
-		\item 	\href{https://bishwamittra.github.io/publication/fssgq-ghosh.pdf}{\blue{The Flexible Socio Spatial Group Queries}}\\
-		\textbf{Bishwamittra Ghosh}, Mohammed Eunus Ali, Farhana M. Choudhury,
-		Sajid Hasan Apon, Timos Sellis, Jianxin Li\\
-		Proceedings of the VLDB Endowment (PVLDB), 2018
-		
-	\end{etaremune}
+% To remove the cover letter, comment out this entire block
 
 \clearpage
-\large { \textbf{Journal Papers}}
-\normalsize
 
-\SmallSep
+\recipient{HR Department}{Corporation\\123 Pleasant Lane\\12345 City, State} % Letter recipient
+\date{\today} % Letter date
+\opening{Dear Sir or Madam,} % Opening greeting
+\closing{Sincerely yours,} % Closing phrase
+\enclosure[Attached]{curriculum vit\ae{}} % List of enclosed documents
 
-	\begin{etaremune}
-		\item \href{https://arxiv.org/pdf/2205.06936.pdf}{\blue{Efficient Learning of Interpretable Classification Rules}} \\
-		\textbf{Bishwamittra Ghosh}, Dmitry Malioutov, Kuldeep S. Meel\\
-		Proceedings of JAIR, 2022
-		
-		
-		\item 	\href{https://dl.acm.org/doi/full/10.1145/3475962?accessTab=true}{\blue{Social-Spatial Group Queries with Keywords}}\\
-		Sajid Hasan Apon, Mohammed Eunus Ali, \textbf{Bishwamittra Ghosh}, Timos Sellis\\
-		ACM Transactions on Spatial Algorithms and Systems (TSAS), 2021
-		
-	\end{etaremune}
+\makelettertitle % Print letter title
 
-%\SmallSep
-%\textbf{Workshop papers}\\
-%
-%	\begin{enumerate}[{[W}1{]}]
-%		\item 	{Interpretable Classification Rules in Relaxed Logical Form}\\
-%		\textbf{Bishwamittra Ghosh}, Dmitry Malioutov, Kuldeep S. Meel\\
-%		IJCAI workshop on XAI (Explainable Artificial Intelligence) and DSO (Data Science meets Optimization), 2019
-%	\end{enumerate}
+\lipsum[1-2] % Dummy text
+\lipsum[4] % Dummy text
 
-\Sep
-\Large { \textbf{Professional Experiences}}\\
-\noindent\rule{\textwidth}{1pt}
-\normalsize
-\textbf{Conference Talks}\\
-AAAI-2022, AAAI-2021, AAAI-2020, ECAI-2020, CP-2019, VLDB-2019, IJCAI-2019, AIES-2019
+\makeletterclosing % Print letter signature
+\end{comment}
 
-\SmallSep
-\textbf{Academic Reviewer}\\
-NeurIPS-2022, 2021, AAAI-2022,  AIES-2022, 
+\newpage
 
-\SmallSep
-\textbf{Research Internship}
-\begin{itemize}
-	\item INRIA, Lille-Nord, France \hspace*{\fill}2021
-	\item Goldman Sachs, Singapore \hspace*{\fill}2021
-	\item  Max Planck Institute For Software Systems, Kaiserslautern, Germany \hspace*{\fill}2020
-\end{itemize}
+%----------------------------------------------------------------------------------------
+%	CURRICULUM VITAE
+%----------------------------------------------------------------------------------------
+
+\makecvtitle % Print the CV title
 
 
-\SmallSep
-\textbf{Graduate Assistant}\\
-School of Computing, National University of Singapore \hspace*{\fill} 2018  - 2021
+\section{Research Interests}
+\cvitem{}{Fairness, interpretability, and explainability in machine learning}
+\cvitem{}{Machine learning with formal methods.}
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
 
-\SmallSep
-\textbf{Lecturer}\\
-Department of Computer Science and Engineering, United International University (UIU), Bangladesh \hspace*{\fill} 2017
+\section{Education}
+
+\cventry{01.18--06.23 (Expected)}{Ph.D. in Computer Science}{National University of Singapore}{Singapore}{}{Thesis advisor: \href{https://www.comp.nus.edu.sg/~meel/}{Dr.\ Kuldeep S.\ Meel}}  % Arguments not required can be left empty
+\cventry{02.13--09.17}{BSc. in Computer Science}{Bangladesh University of Engineering and Technology}{Bangladesh}{}{Thesis advisor: Dr. Mohammed Eunus Ali}
+
+\section{Publications}
+\subsection{Conference Papers}
+\cvitem{AAAI-22}{\href{https://arxiv.org/pdf/2109.09447.pdf}{Algorithmic Fairness Verification with Graphical Models}
+	\newline \small \underline{Bishwamittra Ghosh}, Debabrota Basu, Kuldeep S. Meel}
+
+\cvitem{AAAI-21}{\href{https://arxiv.org/pdf/2009.06516.pdf}{Justicia: A Stochastic SAT Approach to Formally Verify Fairness}
+     \newline \small \underline{Bishwamittra Ghosh}, Debabrota Basu, Kuldeep S. Meel}
+
+\cvitem{AAAI-20}{\href{https://bishwamittra.github.io/publication/aaai_2020/AAAI-CiampiconiL.690.pdf}{A MaxSAT-based Framework for Group Testing}
+     \newline \small Lorenzo Ciampiconi, \underline{Bishwamittra Ghosh}, Jonathan Scarlett, Kuldeep S. Meel}
+
+\cvitem{ECAI-20}{\href{https://bishwamittra.github.io/publication/ecai_2020/paper.pdf}{Classification Rules in Relaxed Logical Form
+}
+     \newline \small \underline{Bishwamittra Ghosh}, Dmitry Malioutov, Kuldeep S. Meel}
+
+\cvitem{AIES-19}{\href{https://bishwamittra.github.io/publication/imli-ghosh.pdf}{IMLI: An Incremental Framework for MaxSAT-Based Learning of Interpretable Classification Rules}
+     \newline \small \underline{Bishwamittra Ghosh}, Kuldeep S. Meel}
+
+\cvitem{VLDB-18}{\href{https://bishwamittra.github.io/publication/fssgq-ghosh.pdf}{The Flexible Socio Spatial Group Queries}
+     \newline \small \underline{Bishwamittra Ghosh}, Mohammed Eunus Ali, Farhana M. Choudhury,
+Sajid Hasan Apon, Timos Sellis, Jianxin Li}
+\cvitem{}{}
+
+\subsection{Journal Papers}
+\cvitem{JAIR-22}{\href{https://arxiv.org/pdf/2205.06936.pdf}{Efficient Learning of Interpretable Classification Rules}
+     \newline \small \underline{Bishwamittra Ghosh}, Dmitry Malioutov, Kuldeep S. Meel}
+\cvitem{TSAS-21}{\href{https://dl.acm.org/doi/full/10.1145/3475962?accessTab=true}{Social-Spatial Group Queries with Keywords}
+     \newline \small Sajid Hasan Apon, Mohammed Eunus Ali, \underline{Bishwamittra Ghosh}, Timos Sellis}
 
 
-\Sep 
-\Large{\textbf{Technical Skills}}\\
-\noindent\rule{\textwidth}{1pt}
-\normalsize
-Advanced: Python, TensorFlow, Solvers (SAT, MaxSAT, SSAT, SMT, ILP), \LaTeX\\
-Intermediate: C/C++, Java
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
 
-\Sep
-\Large{\textbf{Reference}}\\
-\noindent\rule{\textwidth}{1pt}
-\normalsize
-\textbf{Kuldeep S. Meel}\\
-Sung Kah Kay Assistant Professor\\ 
-School of Computing, National University of Singapore, Singapore\\
-Email: meel@comp.nus.edu.sg\\
+\section{Professional Experiences}
+\subsection{Conference Talks}
+\cvitem{}{AAAI-22, AAAI-21, AAAI-20, ECAI-20, CP-19, VLDB-19, IJCAI-19, AIES-19}
+\subsection{Academic Reviewer}
+\cvitem{}{NeurIPS (2022, 2021), AAAI (2023, 2022),  AIES (2022)}
+\subsection{Research Internship}
+\cvitem{11.21--02.22}{INRIA, Lille-Nord, France}
+\cvitem{06.21--08.21}{Goldman Sachs, Singapore}
+\cvitem{03.20--06.20}{Max Planck Institute For Software Systems, Kaiserslautern, Germany}
+\subsection{Graduate Assistant}
+\cvitem{2018--2021}{School of Computing, National University of Singapore}
+\subsection{Lecturer}
+\cvitem{10.17--01.18}{Department of CSE, United International University (UIU), Bangladesh}
 
-\textbf{Daniel Neider}\\
-Professor\\
-Carl von Ossietzky Universit\"at Oldenburg, Germany\\
-Email: daniel.neider@uol.de\\
 
-\textbf{Debabrota Basu}\\
-Faculty\\
-Scool, Inria, Lille-Nord, France\\
-Email: debabrota.basu@inria.fr\\
+\section{Technical Skills}
+\cvitem{Advanced}{Python, TensorFlow, Solvers (SAT, MaxSAT, SSAT, SMT, ILP), \LaTeX}
+\cvitem{Intermediate}{C/C++, Java} 
 
+
+\section{References}
+\cventry{}{}{}{}{}{\normalsize 
+		\begin{itemize}
+			\item Kuldeep S. Meel
+			\newline
+			Assistant Professor, School of Computing, National University of Singapore, Singapore
+			\newline
+			Email: meel@comp.nus.edu.sg
+			\newline
+			\item Daniel Neider
+			\newline
+			Professor,
+			Carl von Ossietzky Universit\"at Oldenburg, Germany
+			\newline
+			Email: daniel.neider@uol.de
+			\newline
+			\item Debabrota Basu
+			\newline
+			Faculty,
+			Scool, INRIA, Lille-Nord, France
+			\newline
+			Email: debabrota.basu@inria.fr	
+		\end{itemize}	
+	}
+
+
+\begin{comment}
+%----------------------------------------------------------------------------------------
+%	LANGUAGES SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Languages}
+
+\cvitemwithcomment{English}{Mothertongue}{}
+\cvitemwithcomment{Spanish}{Intermediate}{Conversationally fluent}
+\cvitemwithcomment{Dutch}{Basic}{Basic words and phrases only}
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Interests}
+
+\renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
+
+\cvlistdoubleitem{Piano}{Chess}
+\cvlistdoubleitem{Cooking}{Dancing}
+\cvlistitem{Running}
+
+%----------------------------------------------------------------------------------------
+
+\end{comment}
 
 
 \end{document}
