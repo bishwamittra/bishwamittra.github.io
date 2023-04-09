@@ -73,7 +73,7 @@
                 	<h2> Bishwamittra Ghosh</h2>
                 	<h4> Ph.D. Candidate </h4>
                 	<h4> School of Computing, National University of Singapore (NUS) </h4>
-                    <h4> <i class="fa fa-envelope-o"></i>  bghosh@u.nus.edu </h4>
+                    <h4> <i class="fa fa-envelope-o"></i>  bghosh[at]u.nus.edu </h4>
                     <h4> <a href="resume/bghosh.pdf">[CV]</a> <a href="research_statement/bghosh_research_statement.pdf">[Research statement]</a> <a href="teaching_statement/bghosh_teaching_statement.pdf">[Teaching statement]</a> </h4>
                     <h4> <a href="https://scholar.google.com/citations?user=xO4PpdAAAAAJ&hl=en&oi=ao" class="icon-block"><i class="ai ai-google-scholar-square ai-2x"></i></a>   
                          <a href="https://github.com/bishwamittra" class="icon-block"><i class="fa fa-github" style="font-size:36px"></i></a>
@@ -116,7 +116,103 @@
 
         <h2 class="heading"><a href="publications.html">Publications</a></h2>
 
+        
+        <div class="publication-block">
+
+            <h1 class="heading">2023</h1>
     
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1">
+                            <span class="serial">
+                            <strong> [10]  </strong><br />
+                        </span>
+    
+                    </div>
+                    <div class="col-md-8">
+                        <h3>“How Biased are Your Features?”: Computing Fairness Influence Functions with Global Sensitivity Analysis</h3>
+                        <h4> <strong>Bishwamittra Ghosh</strong>, Debabrota Basu, Kuldeep S. Meel</h4> 
+                            <h4>Proceedings of FAccT, 2023.</h4>
+                        <button type="button" class="btn btn-primary collapsed" data-toggle="collapse" data-target="#fairXplainer">Abstract</button>
+                            <a href="https://arxiv.org/pdf/2206.00667.pdf" class="btn btn-primary" role="button">PDF</a>
+                            <a href="publication/fairXplainer/paper.bib" class="btn btn-primary" role="button"	>Cite</a>
+                            <!-- <a href="publication/fssgq-ghosh-slides.pdf" class="btn btn-primary" role="button"	>Slides</a> -->
+                            <a href="https://github.com/ReAILe/bias-explainer" class="btn btn-primary" role="button"	>Code</a>
+                            <!-- <a href="https://www.dropbox.com/s/7njeqwajgtb6696/lexr.mov?dl=0" class="btn btn-primary" role="button"	>Video</a> -->
+                            <!-- <a href="https://www.dropbox.com/s/01qg1x3xt7as7n0/lexr.pptx?dl=0" class="btn btn-primary" role="button"	>Slides</a> -->
+                                                            
+        
+                        <div id="fairXplainer" class="collapse">
+                            <p align="justify">
+                                Fairness in machine learning has attained significant focus due to the widespread application 
+                                in high-stake decision-making tasks. Unregulated machine learning classifiers can exhibit 
+                                bias towards certain demographic groups in data, thus the quantification and mitigation of 
+                                classifier bias is a central concern in fairness in machine learning. In this paper, 
+                                we aim to quantify the influence of different features in a dataset on the bias of a 
+                                classifier. To do this, we introduce the Fairness Influence Function (FIF). 
+                                This function breaks down bias into its components among individual features and the 
+                                intersection of multiple features. The key idea is to represent existing group 
+                                fairness metrics as the difference of the scaled conditional variances in the classifier’s 
+                                prediction and apply a decomposition of variance according to global sensitivity analysis. 
+                                To estimate FIFs, we instantiate an algorithm FairXplainer that applies variance decomposition 
+                                of classifier’s prediction following local regression. Experiments demonstrate that 
+                                FairXplainer captures FIFs of individual feature and intersectional features, provides 
+                                a better approximation of bias based on FIFs, demonstrates higher correlation of FIFs 
+                                with fairness interventions, and detects changes in bias due to fairness affirmative/punitive 
+                                actions in the classifier.
+                            </p>
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-1">
+                        <span class="serial">
+                        <strong> [9]  </strong><br />
+                    </span>
+    
+                    </div>
+                    <div class="col-md-8">
+                        <h3>Neighborhood-based Hypergraph Core Decomposition</h3>
+                        <h4> Naheed Anjum Arafat, Arijit Khan, Arpit Kumar Rai, <strong>Bishwamittra Ghosh</strong></h4> 
+                            <h4>Proceedings of VLDB, 2023.</h4>
+                        <button type="button" class="btn btn-primary collapsed" data-toggle="collapse" data-target="#hypergraph">Abstract</button>
+                            <a href="https://arxiv.org/pdf/2301.06426.pdf" class="btn btn-primary" role="button">PDF</a>
+                            <!-- <a href="publication/fairXplainer/paper.bib" class="btn btn-primary" role="button"	>Cite</a> -->
+                            <!-- <a href="publication/fssgq-ghosh-slides.pdf" class="btn btn-primary" role="button"	>Slides</a> -->
+                            <!-- <a href="https://github.com/ReAILe/bias-explainer" class="btn btn-primary" role="button"	>Code</a> -->
+                            <!-- <a href="https://www.dropbox.com/s/7njeqwajgtb6696/lexr.mov?dl=0" class="btn btn-primary" role="button"	>Video</a> -->
+                            <!-- <a href="https://www.dropbox.com/s/01qg1x3xt7as7n0/lexr.pptx?dl=0" class="btn btn-primary" role="button"	>Slides</a> -->
+                                                            
+    
+                        <div id="hypergraph" class="collapse">
+                            <p align="justify">
+                                We propose neighborhood-based core decomposition: a novel way of decomposing hypergraphs
+                                into hierarchical neighborhood-cohesive subhypergraphs. Alternative approaches
+                                to decomposing hypergraphs, e.g., reduction to clique or bipartite graphs,
+                                are not meaningful in certain applications, the later also results in inefficient
+                                decomposition; while existing degree-based hypergraph decomposition does not 
+                                distinguish nodes with different neighborhood sizes. Our case studies show that 
+                                the proposed decomposition is more effective than degree and clique graph-based decompositions 
+                                in disease intervention and in extracting provably approximate and application-wise meaningful 
+                                densest subhypergraphs. We propose three algorithms: Peel, its efficient variant E-Peel, 
+                                and a novel local algorithm: Local- core with parallel implementation. Our most efficient parallel 
+                                algorithm Local-core(P) decomposes hypergraph with 27M nodes and 17M hyperedges in-memory 
+                                within 91 seconds by adopting various optimizations. Finally, we develop a new hypergraph-core model, 
+                                the (neighborhood, degree)-core by considering both neighborhood and degree constraints, 
+                                design its decomposition algorithm Local-core+Peel, and demonstrate its superiority 
+                                in spreading diffusion.
+                            </p>
+                        </div>
+                    </div>
+                        
+                </div>
+            </div>
+        
+        </div>
+
+        
         <div class="publication-block">
             <h1 class="heading">2022</h1>
 
@@ -524,63 +620,33 @@
         <h2 class="heading"><a href="news.html">News</a></h2>
         <div id="experience-timeline">
 
-            <div data-date="30 August 2022">
+            <div data-date="09 April 2023">
                 <p>
-                    Our work on <a href="https://arxiv.org/pdf/2205.06936.pdf">Efficient Learning of Interpretable Classification Rules</a> is published in <a href="https://jair.org/index.php/jair/article/view/13482">Jair 2022</a>. This is a joint work with Dmitry Malioutov and <a href="https://www.comp.nus.edu.sg/~meel/">Kuldeep S. Meel</a>.
+                    Our work on "Neighborhood-based Hypergraph Core Decomposition" is accepted in VLDB 2023. This is a joint work with
+                    Naheed Anjum Arafat, Arijit Khan, and Arpit Kumar Rai.
                	</p>
             </div>
 
 
-            <div data-date="1 December 2021">
+            <div data-date="08 April 2023">
                 <p>
-                    Our work on <a href="https://arxiv.org/pdf/2109.09447.pdf">Algorithmic Fairness Verification with Graphical Models</a> is accepted in AAAI 2022. This is a joint work with <a href="https://debabrota-basu.github.io">Debabrota Basu</a> and <a href="https://www.comp.nus.edu.sg/~meel/">Kuldeep S. Meel</a>.
+                    Our work on "How Biased are Your Features?: Computing Fairness Influence Functions with Global Sensitivity Analysis" is accepted in FAccT 2023. This is a joint work with <a href="https://debabrota-basu.github.io">Debabrota Basu</a> and <a href="https://www.comp.nus.edu.sg/~meel/">Kuldeep S. Meel</a>.
                	</p>
             </div>
 
-            <div data-date="15 November 2021">
+            <div data-date="15 March 2023">
                 <p>
-                    I have been invited for a research visit to <a href="https://www.inria.fr/en/centre-inria-lille-nord-europe">Inria, Lille Nord, France</a>. I will be working with <a href="https://debabrota-basu.github.io">Debabrota Basu</a> on fairness in Machine Learning.
+                    I have submitted my PhD thesis for examination in NUS. The title of the thesis is "Interpretability and Fairness in Machine Learning: A Formal Methods Approach".
                	</p>
             </div>
 
-
-            <div data-date="26 October 2021">
+            <div data-date="06 March 2023">
                 <p>
-                    Our paper on <a href=https://scholar.google.com/scholar?oi=bibs&cluster=539255875290186694&btnI=1&hl=en> social-spatial group queries with keywords </a> has been accepted in ACM Transactions on Spatial Algorithms and Systems (TSAS). 
-                    This is a joint work with Sajid Hasan Apon, Mohammed Eunus Ali, and Timos Sellis.
+                    I am visiting Max Planck Institute for Software Systems, Saarbrucken, Germany as a research fellow. I will be working with Prof. Krishna P. Gummadi.
                	</p>
             </div>
 
-
-            <div data-date="20 September 2021">
-                <p>
-                    We have improved fairness-verification for linear classifiers both in terms of accuracy and scalability. The paper is 
-                    available in <a href=https://arxiv.org/abs/2109.09447> arXiv </a> now. 
-               	</p>
-            </div>
-
-            <div data-date="31 August 2021">
-                <p>
-                    I have completed my internship at Goldman Sachs. During my internship, 
-                    I have experimented with recent advances in transformer-based models, such as BERT, in natural language processing (NLP).
-               	</p>
-            </div>
-
-
-            <div data-date="1 June 2021">
-                <p>
-                    I have joined Goldman Sachs, Singapore as an AI research intern.
-               	</p>
-            </div>
-
-
-            <div data-date="2 December 2020">
-                <p>
-                    Our work on <a href="https://arxiv.org/pdf/2009.06516.pdf">formal fairness verification based on Stochastic Boolean Satisfiability (SSAT)</a> is accepted in AAAI 2021. This is a joint work with <a href="https://debabrota-basu.github.io">Debabrota Basu</a> and <a href="https://www.comp.nus.edu.sg/~meel/">Kuldeep S. Meel</a>.
-               	</p>
-            </div>
-
-            
+                        
            
         </div>
         <p align="middle"><a href="news.html">All news...</a>.</p>
