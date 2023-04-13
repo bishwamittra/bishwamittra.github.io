@@ -95,8 +95,9 @@ a{
 */
 
 body {
-    font-family: 'Lato', sans-serif;
-    font-size: 18px;
+    // font-family: 'Lato', sans-serif;
+    font-family: 'PMN Caecilia', sans-serif;
+    font-size: 16px;
 
     &.active {
         overflow: hidden;
@@ -114,7 +115,7 @@ body {
             border: 1px solid $border;
 
             h3 {
-                font-size: 1.5em;
+                font-size: 1.3em;
                 font-weight: 300;
                 color: $heading;
                 display: inline-block;
@@ -122,7 +123,7 @@ body {
             }
 
             h4 {
-                font-size: 1.2em;
+                font-size: 1.1em;
                 font-weight: 500;
                 color: $text;
                 margin: 0 0 15px 0;
@@ -130,7 +131,7 @@ body {
 
             p {
                 color: $text;
-                font-size: 1.2em;
+                font-size: 1.1em;
                 margin: 0;
             }
         }
@@ -217,7 +218,7 @@ header {
     right: 15px;
     top: 10px;
     color: $base-color;
-    font-size: 1.5em;
+    font-size: 1.3em;
     z-index: 20;
     padding: 0 7px;
     border-radius: 4px;
@@ -229,7 +230,7 @@ header {
     text-align: right;
     width: 100%;
     background: $background;
-    font-size: 1.5em;
+    font-size: 1.3em;
     padding-right: 15px;
     padding-top: 10px;
     cursor: pointer;
@@ -525,7 +526,7 @@ footer {
     text-align: left;
 
     h3 {
-        font-size: 1.5em;
+        font-size: 1.3em;
         font-weight: 300;
         color: $heading;
         display: inline-block;
@@ -533,7 +534,7 @@ footer {
     }
 
     h4 {
-        font-size: 1.2em;
+        font-size: 1.1em;
         font-weight: 300;
         color: #7e8890;
         margin: 0 0 15px 0;
@@ -541,7 +542,7 @@ footer {
 
     p {
         color: $text;
-        font-size: 0.9em;
+        font-size: 1em;
         margin: 0;
     }
 }
@@ -661,6 +662,7 @@ footer {
     text-align: left;
 
     h3 {
+        font-size: 1.2em;
         font-weight: 500;
         float: left;
         margin: 5px 0 5px 0;
@@ -743,7 +745,7 @@ footer {
     padding: 15px;
 
     h3 {
-        font-size: 1.5em;
+        font-size: 1.3em;
         font-weight: 600;
         color: $heading;
         margin: 0 0 15px 0;
@@ -800,7 +802,7 @@ footer {
         background: darken($background-alt, 5%);
         list-style: none;
         cursor: default;
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 }
 
@@ -833,7 +835,7 @@ footer {
         background: darken($background-alt, 5%);
         list-style: none;
         cursor: default;
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 }
 
@@ -1099,7 +1101,7 @@ footer {
 
     #lead-content {
         h1 {
-            font-size: 1.5em;
+            font-size: 1.3em;
         }
 
         h2 {
