@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 
 % Define margins
 \setlength{\topmargin}{-1.0cm}
@@ -21,67 +21,106 @@
 \newcommand{\green}[1]{\textcolor{green}{#1}}
 
 
+% Long version
+\newif\iflongproposal
+\longproposaltrue % comment out for a short proposal
+
+
 
 \begin{document}
-	\noindent\huge \textbf{Research Statement} \\
-	\vspace{0.1em}\\
-	\Large \textbf{Bishwamittra Ghosh}
-		
-	\normalsize
-	\noindent Ph.D.\ Candidate\\
-	School of Computing\\
-	National University of Singapore (NUS)\\
+	\begin{center}
+		\large\textbf{Research Statement} 
+	\end{center}
+	\textbf{Bishwamittra Ghosh}\\		
+	\noindent Scientist\\
+	IHPC, A*STAR, Singapore\\
 	\blue{\url{https://bishwamittra.github.io}}
 
 
 
 	\paragraph{}
-	My research interest is on fairness and interpretability in machine learning, specifically as it applies to safety-critical domains. Traditional machine learning, particularly deep learning, is known for producing unfair predictions towards certain sensitive demographic groups and for generating uninterpretable black-box predictions. In my dissertation research, I design algorithms to \textit{verify fairness}~\cite{ghosh2021justicia, ghosh2022algorithmic}, \textit{explain the sources of unfairness}~\cite{ghosh2022how}, and \textit{learn interpretable rule-based classifiers}~\cite{ghosh22efficient, ghosh2019incremental, ghosh2020classification}. Prior approaches to these problems are often limited by scalability, accuracy, or both. To overcome these limitations, I closely integrate automated reasoning, formal methods, and statistics with fairness and interpretability to develop scalable and accurate solutions.
+	My research is on fairness and explainability in machine learning applied in safety-critical domains. Traditional machine learning, particularly deep learning, is known for  unfair predictions towards marginalized sensitive groups and for generating black-box predictions. In my research, I design algorithmic framework to \textit{formally quantify fairness in machine learning}~\cite{ghosh2021justicia, ghosh2022algorithmic}, \textit{explain the sources of unfairness}~\cite{ghosh2022how}, and \textit{learn explainable rule-based classifiers}~\cite{ghosh22efficient, ghosh2019incremental, ghosh2020classification}. Prior approaches to these problems are often limited by scalability, accuracy, or both. To address the limitations, I closely integrate automated reasoning, formal methods, and statistics with fairness and explainability to develop scalable and accurate solutions.
 	
 	
 
 	
 	
-	My research has flourished through multiple collaborations and internships in industry and academia. In addition to my work on fairness and interpretability, I have collaborated on research problems related to group testing~\cite{ciampiconi2020maxsat} and social-spatial group queries~\cite{ghosh2018flexible, apon2021social}. Our work has been published in leading conferences and journals in artificial intelligence and machine learning (AAAI-$2022$, $2021$, $2020$, JAIR-$2022$, ECAI-$2020$, AIES-$2019$) and databases (VLDB-$2018$, TSAS-$2022$).
+	During my PhD, I have  research collaborations and internships in academia and industry. In addition to fairness and explainability, I have collaborative research on  group testing~\cite{ciampiconi2020maxsat}, social-spatial group queries~\cite{ghosh2018flexible, apon2021social}, and hypergraph core decomposition~\cite{arafat2023neighborhood}. We publish our research in leading conferences and journals in artificial intelligence and machine learning (AAAI-$22$, $21$, $20$, JAIR-$22$, FAccT-$ 23 $, ECAI-$20$, AIES-$19$) and databases (VLDB-$23$, $18$, TSAS-$2022$).
 	
 	
 	
 	
 	
-	\section*{Dissertation Research}
+%	\section*{Dissertation Research}
 	
 	\subsection*{Research Thrust 1: Fairness in Machine Learning}
 	
-	Fairness in machine learning involves quantifying and mitigating bias towards different sensitive groups in the data that may be introduced by the classifier. Over the past decade, multiple fairness definitions and metrics have been proposed to quantify bias. However, there has been little progress in formally verifying these fairness metrics. Furthermore, fairness metrics only measure the overall bias of a classifier and are unable to detect or explain the sources of bias. Therefore, our research focuses on two key aspects: formally verifying the bias of a classifier and explaining its sources by breaking down bias into individual features and the intersection of multiple features.
+	Fairness in machine learning focuses on quantifying and mitigating the unfairness or bias of the prediction of the classifier towards different sensitive groups in the data. To quantify bias in algorithmic decision-making, multiple fairness metrics have been proposed based on societal belief and norms. However, there has been insignificant progress in \textit{formally quantifying existing fairness metrics}. In addition, fairness metrics measure the overall bias of a classifier, but they cannot  \textit{explain the sources of bias}. Therefore, our research focuses on two key aspects: formally quantifying bias of a classifier and explaining its sources.
 	
-	\subsubsection*{Probabilistic Fairness Verification} The problem of probabilistic fairness verification is to verify the resulting bias of a classifier given the distribution of input features. Early work on fairness verification focused on quantifying the bias of a classifier for a specific dataset. However, such techniques were limited in terms of increasing confidence for wide deployment. Consequently, recent verifiers aim to achieve verification beyond a finite dataset and instead focus on the probability distribution of features. Specifically, the input to the probabilistic fairness verifier is a classifier and the distribution of features, and the output is a quantification of fairness metrics that the classifier obtains given the distribution.
+	\subsubsection*{Probabilistic Fairness Quantification} In probabilistic fairness quantification, we formally quantify the bias of a classifier given the distribution of input features\textemdash essentially beyond a finite dataset. We propose two approaches to the problem: a general approach for finite classifiers encoded as Boolean formulas~\cite{ghosh2021justicia} and a specific approach for linear classifiers~\cite{ghosh2022algorithmic}.
 	
 
 	
 	
-	\paragraph{Formal Fairness Verification.} We propose two approaches to probabilistic fairness verification: a general approach that verifies a finite classifier by encoding it into a Boolean formula~\cite{ghosh2021justicia} and a more tailored approach for linear classifiers~\cite{ghosh2022algorithmic}. Based on stochastic satisfiability (SSAT), our proposed verifier, called $\mathsf{Justicia}$, verifies the fairness of classifiers such as decision trees by solving appropriately designed SSAT formulas. In contrast to prior methods, $\mathsf{Justicia}$ extends verification to compound sensitive groups by combining multiple categorical sensitive features. In experiments, $\mathsf{Justicia}$ is more scalable than existing SMT and sampling-based probabilistic verifiers and more robust than dataset-centric empirical verifiers.
+	\paragraph{Fairness Quantification via SSAT.} The key idea in quantifying group fairness metrics is to compute the maximum (resp.\ minimum) probability of predictions of the classifier across all sensitive groups\textemdash the probability of selecting White-male vs.\ Black-female candidates in job applications. We propose a stochastic satisfiability (SSAT) based framework, called $\mathsf{Justicia}$~\cite{ghosh2021justicia}, for computing such probabilities. 
+	\iflongproposal
+	More specifically, the maximum probability becomes the solution of an existential-random (ER)-SSAT formula\textemdash we encode the classifier as a Boolean formula, the feature distribution via random Boolean variables, and compute the maximum conditional probability of the satisfaction of the formula for existentially quantified sensitive features.
+	\fi
+	In the presence of multiple sensitive features resulting in exponentially many sensitive groups, SSAT efficiently finds the most (resp.\ least) favored
+	\iflongproposal
+	group by the classifier, thanks to the significant progress in satisfiability (SAT) solving, and particularly in weighted model counting problem.
+	\else
+	group.
+	\fi 
+	In experiments, $\mathsf{Justicia}$ is more scalable in the fairness quantification of tree-based classifiers than existing SMT or sampling methods.
 	
 	
-	\paragraph{Tractable Fairness Verification with Feature Correlation.} Linear classifiers have received significant attention from researchers in the context of fair algorithms. Existing fairness verifiers suffer from two-fold limitations while verifying linear classifiers: (i) poor scalability due to the use of SSAT, SMT, or sampling-based techniques, and (ii) limited accuracy due to ignoring feature correlations. To alleviate both limitations, we extend $\mathsf{Justicia}$ with a novel stochastic subset-sum problem-based encoding that verifies linear classifiers by dynamic programming, obtaining pseudo-polynomial complexity. To incorporate feature correlations, we consider a probabilistic graphical model, specifically a Bayesian Network, to represent the conditional dependence and independence among features using directed acyclic graphs. Experimentally, $\mathsf{Justicia}$ is more accurate and scalable than existing fairness verifiers for linear classifiers while verifying multiple group and causal fairness metrics. We also demonstrate two novel applications of $\mathsf{Justicia}$ as a fairness verifier: (a) detecting fairness attacks and fairness improvement algorithms, and (b) computing the impact of feature subsets on shifting the incurred bias of the classifiers from the original bias.
+	\paragraph{Tractable Fairness Quantification with Feature Correlation.} We extend $\mathsf{Justicia}$ to consider feature correlations for an accurate fairness quantification~\cite{ghosh2022algorithmic}. We consider a Bayesian network to represent the conditional distribution of 
+	\iflongproposal
+	features\textemdash the SSAT formula grows with the complexity of the Bayesian network, calling for a more scalable solution.	Therefore, we
+	\else
+	features and
+	\fi
+	demonstrate a tractable fairness quantification for linear classifiers by proposing stochastic subset sum 
+	\iflongproposal
+	problem, which admits an efficient dynamic programming solution with pseudo-polynomial complexity.
+	\else
+	problem.
+	\fi 
+	Experimentally, $\mathsf{Justicia}$ becomes more accurate and scalable than existing fairness verifiers for linear classifiers.
 	
 	
 	
 	
 	
-	
-	\subsubsection*{Explaining Fairness Metrics: Identifying the Sources of Bias}
-	Fairness metrics can quantify bias in a global sense, but they cannot identify or explain the sources of bias. To understand the sources of bias, it's necessary to determine \textit{which factors contribute how much to the bias of a classifier on a dataset}. We use a feature-attribution approach to explain the sources of bias, which relates the \emph{influences} of input features to the resulting bias of the classifier. We formalize the \textit{Fairness Influence Function} (FIF) to quantify the contribution of an individual feature and the intersection of multiple features to the resulting bias~\cite{ghosh2022how}. We build an algorithm called $\mathsf{FairXplainer}$, which estimates FIFs by decomposing the variance of the classifier's prediction among all subsets of features, using global sensitivity analysis. In experiments, $\mathsf{FairXplainer}$ captures the influences of both individual and intersectional features across various datasets and classifiers, approximates bias more accurately using FIFs than existing local explanation methods, and demonstrates a higher correlation of FIFs with fairness interventions.
+	\subsubsection*{Explaining Fairness Metrics: Identifying Sources of Bias}
+	We combine both explainability and fairness in machine learning and propose a framework for explaining fairness.  We formalize \textit{fairness influence functions} (FIFs) to quantify the contribution of an individual feature and the intersection of multiple features to the resulting bias of the classifier~\cite{ghosh2022how}. 	Based on global sensitivity analysis, we propose a model-agnostic framework, called $\mathsf{FairXplainer}$, to estimate FIFs. 
+	\iflongproposal
+	The key idea is to represent fairness metrics using the variance of predictions and apply variance decomposition to compute FIFs.
+	\fi
+	In experiments, FIFs are highly correlated with fairness  
+	\iflongproposal
+	interventions and demonstrate a higher granular explanation of unfairness through intersectional influences,
+	\else 
+	interventions, 
+	\fi
+	unlike existing local explainability methods. In addition, $\mathsf{FairXplainer}$ approximates bias via FIFs with lower error than prior 
+	\iflongproposal
+	methods across classifiers such as neural networks and SVMs.
+	\else
+	methods.
+	\fi
 	
 	
 
 		
 	
-	\subsection*{Research Thrust 2: Interpretable Rule-based Machine Learning}
+	\subsection*{Research Thrust 2: Explainable Rule-based Machine Learning}
 
-	Interpretable machine learning often employs rule-based classifiers, which use a set of rules to represent the decision boundary. The interpretability of such classifiers depends on the size of the rules: smaller rules with higher accuracy are preferred in practice. However, this presents a challenge when dealing with large datasets, as interpretable classification learning becomes a combinatorial optimization problem that suffers from poor scalability. To address this issue, we propose an incremental learning framework for interpretable rule-based classification on large datasets. Our framework combines maximum satisfiability (MaxSAT) and mixed integer linear programming (MILP) with mini-batch learning.
+	\red{interpret}able machine learning often employs rule-based classifiers, which use a set of rules to represent the decision boundary. The \red{interpret}ability of such classifiers depends on the size of the rules: smaller rules with higher accuracy are preferred in practice. However, this presents a challenge when dealing with large datasets, as \red{interpret}able classification learning becomes a combinatorial optimization problem that suffers from poor scalability. To address this issue, we propose an incremental learning framework for \red{interpret}able rule-based classification on large datasets. Our framework combines maximum satisfiability (MaxSAT) and mixed integer linear programming (MILP) with mini-batch learning.
 	
 	\subsubsection*{Scalability via Incremental Learning}
-	We introduce a new incremental learning framework, referred to as $\mathsf{IMLI}$, which is based on MaxSAT for learning interpretable classification rules in propositional logic. The framework aims to optimize both the accuracy and interpretability of the classification rules through a joint objective function, and an optimal rule is learned by solving a specially designed MaxSAT query. However, while MaxSAT has made considerable progress in the last decade, it is not scalable to practical classification datasets with thousands to millions of samples. To address this, we incorporate an efficient incremental learning technique that integrates mini-batch learning and iterative rule-learning within the MaxSAT formulation. This results in a framework that learns a classifier by iteratively covering the training data, solving a sequence of smaller MaxSAT queries corresponding to each mini-batch in each iteration. Our experiments demonstrate that $\mathsf{IMLI}$ achieves the best balance among prediction accuracy, interpretability, and scalability, with competitive accuracy and interpretability compared to existing interpretable classifiers, and impressive scalability on large datasets where both interpretable and non-interpretable classifiers fail. Finally, we apply $\mathsf{IMLI}$ to learn popular interpretable classifiers such as decision lists and decision sets.
+	We introduce a new incremental learning framework, referred to as $\mathsf{IMLI}$, which is based on MaxSAT for learning \red{interpret}able classification rules in propositional logic. The framework aims to optimize both the accuracy and \red{interpret}ability of the classification rules through a joint objective function, and an optimal rule is learned by solving a specially designed MaxSAT query. However, while MaxSAT has made considerable progress in the last decade, it is not scalable to practical classification datasets with thousands to millions of samples. To address this, we incorporate an efficient incremental learning technique that integrates mini-batch learning and iterative rule-learning within the MaxSAT formulation. This results in a framework that learns a classifier by iteratively covering the training data, solving a sequence of smaller MaxSAT queries corresponding to each mini-batch in each iteration. Our experiments demonstrate that $\mathsf{IMLI}$ achieves the best balance among prediction accuracy, \red{interpret}ability, and scalability, with competitive accuracy and \red{interpret}ability compared to existing \red{interpret}able classifiers, and impressive scalability on large datasets where both \red{interpret}able and non-\red{interpret}able classifiers fail. Finally, we apply $\mathsf{IMLI}$ to learn popular \red{interpret}able classifiers such as decision lists and decision sets.
 	
 	\subsubsection*{Expressiveness via Logical Relaxation}
 	We extend our incremental learning framework to enable the learning of a more relaxed representation of classification rules with higher expressiveness, as described in~\cite{ghosh2020classification}. Specifically, we consider relaxed definitions of the standard OR/AND operators in propositional logic by allowing exceptions in the construction of a clause and in the selection of clauses in a rule. Based on these relaxed definitions, we introduce relaxed logical classification rules, which are motivated by the use of checklists in the medical domain and Boolean cardinality constraints. These rules generalize widely used rule representations, such as CNF, DNF, and decision sets. However, the combinatorial structure of these rules results in exponential succinctness, and na"ive learning techniques are computationally expensive. To overcome this issue, we propose an incremental mini-batch learning procedure, called $\mathsf{CRR}$, which leverages advances in MILP solvers to efficiently learn such rules. Our experimental analysis shows that $\mathsf{CRR}$ can generate more accurate and sparser classification rules compared to alternative rule-based classifiers.
@@ -89,7 +128,7 @@
 	
 	
 	
-%	\paragraph{Incremental Learning of Interpretable Classfication Rules.} We propose an incremental learning framework, called $ \mathsf{IMLI} $~\cite{ghosh22efficient,ghosh2019incremental},  based on maximum satisfiability (MaxSAT) for synthesizing classification rules expressible in proposition logic. $ \mathsf{IMLI} $ considers a joint objective function to optimize the accuracy and the interpretability of classification rules and learns an optimal rule by solving an appropriately designed MaxSAT query. Despite the progress of MaxSAT solving in the last decade, the straightforward MaxSAT-based solution cannot scale to practical classification datasets containing thousands to millions of samples. Therefore, we incorporate an efficient incremental learning technique inside the MaxSAT formulation by integrating mini-batch learning and iterative rule-learning. The resulting framework learns a classifier by iteratively covering the training data, wherein in each iteration, it solves a sequence of smaller MaxSAT queries corresponding to each mini-batch. In our experiments, $ \mathsf{IMLI} $ achieves the best balance among prediction accuracy, interpretability, and scalability. For instance, $ \mathsf{IMLI} $ attains a competitive prediction accuracy and interpretability w.r.t. existing interpretable classifiers and demonstrates impressive scalability on large datasets (Figure~\ref{fig:scalability_imli}) where both interpretable and non-interpretable classifiers fail. As an application, we deploy $ \mathsf{IMLI} $ in learning popular interpretable classifiers such as decision lists and decision sets.
+%	\paragraph{Incremental Learning of \red{interpret}able Classfication Rules.} We propose an incremental learning framework, called $ \mathsf{IMLI} $~\cite{ghosh22efficient,ghosh2019incremental},  based on maximum satisfiability (MaxSAT) for synthesizing classification rules expressible in proposition logic. $ \mathsf{IMLI} $ considers a joint objective function to optimize the accuracy and the \red{interpret}ability of classification rules and learns an optimal rule by solving an appropriately designed MaxSAT query. Despite the progress of MaxSAT solving in the last decade, the straightforward MaxSAT-based solution cannot scale to practical classification datasets containing thousands to millions of samples. Therefore, we incorporate an efficient incremental learning technique inside the MaxSAT formulation by integrating mini-batch learning and iterative rule-learning. The resulting framework learns a classifier by iteratively covering the training data, wherein in each iteration, it solves a sequence of smaller MaxSAT queries corresponding to each mini-batch. In our experiments, $ \mathsf{IMLI} $ achieves the best balance among prediction accuracy, \red{interpret}ability, and scalability. For instance, $ \mathsf{IMLI} $ attains a competitive prediction accuracy and \red{interpret}ability w.r.t. existing \red{interpret}able classifiers and demonstrates impressive scalability on large datasets (Figure~\ref{fig:scalability_imli}) where both \red{interpret}able and non-\red{interpret}able classifiers fail. As an application, we deploy $ \mathsf{IMLI} $ in learning popular \red{interpret}able classifiers such as decision lists and decision sets.
 	
 	\begin{comment}
 	\begin{figure}[!b]
@@ -100,7 +139,7 @@
 		\subfloat[Samples: $  107, 696 $\\Features: $ 169 $]{\includegraphics[scale=0.3]{figures/dataset_weatherAUS_cactus_train_val_fit_time}}
 		\subfloat[Samples: $  1, 000, 000 $\\Features: $ 89 $]{\includegraphics[scale=0.3]{figures/dataset_labor_cactus_train_val_fit_time}}
 		
-		\caption{Results on the scalability of $ \mathsf{IMLI} $ compared to existing interpretable classifiers, presented using cactus plots for datasets with varied dimensions. As datasets become large, $ \mathsf{IMLI} $ becomes the only interpretable classifier to classify all of $ 1000 $ classification instances for a dataset. The success of $ \mathsf{IMLI} $ is attributed to its incremental learning wrapping a MaxSAT-based formulation.}
+		\caption{Results on the scalability of $ \mathsf{IMLI} $ compared to existing \red{interpret}able classifiers, presented using cactus plots for datasets with varied dimensions. As datasets become large, $ \mathsf{IMLI} $ becomes the only \red{interpret}able classifier to classify all of $ 1000 $ classification instances for a dataset. The success of $ \mathsf{IMLI} $ is attributed to its incremental learning wrapping a MaxSAT-based formulation.}
 		\label{fig:scalability_imli}
 	\end{figure}
 	\end{comment}
@@ -116,11 +155,12 @@
 	 My long-term research plan is focused on designing efficient and scalable algorithms for machine learning, with a particular emphasis on their trustworthiness in safety-critical applications. To achieve this goal, I plan to work in a collaborative environment, where I can better understand the challenges arising in real-world applications and use advances in machine learning and formal methods to solve them. In pursuit of this vision, I have identified several key research themes that will guide my work.
 	 
 	 
-	 \paragraph{Fairness and Interpretability As a Service.} I believe that in the future, machine learning will serve as an alternative decision-maker to humans in various domains, including law, education, and transportation. However, in high-stakes and safety-critical applications, black-box algorithms are expected to provide higher transparency. Therefore, it is crucial to achieve fairness, interpretability, robustness, and privacy in machine learning models. However, traditional machine learning models, such as deep learning, are often data-hungry, making it challenging to certify and verify properties such as fairness and interpretability in complex models and large datasets. With this in mind, my research aims to develop efficient algorithms for ensuring the fairness and interpretability of deep learning models, transformer-based natural language processing (NLP), and computer vision. 
+	 \paragraph{Fairness and \red{interpret}ability As a Service.} I believe that in the future, machine learning will serve as an alternative decision-maker to humans in various domains, including law, education, and transportation. However, in high-stakes and safety-critical applications, black-box algorithms are expected to provide higher transparency. Therefore, it is crucial to achieve fairness, \red{interpret}ability, robustness, and privacy in machine learning models. However, traditional machine learning models, such as deep learning, are often data-hungry, making it challenging to certify and quantify properties such as fairness and \red{interpret}ability in complex models and large datasets. With this in mind, my research aims to develop efficient algorithms for ensuring the fairness and \red{interpret}ability of deep learning models, transformer-based natural language processing (NLP), and computer vision. 
 	 
 	 
-	 \paragraph{Counting and Optimization Problems.} In my previous research, I focused on formulating fairness and interpretability in machine learning as counting and optimization problems. I developed algorithms based on formal methods and incremental solving, which resulted in both higher scalability and better accuracy. Building on this work, I plan to extend these techniques to solve counting and optimization problems in areas beyond machine learning.
+	 \paragraph{Counting and Optimization Problems.} In my previous research, I focused on formulating fairness and \red{interpret}ability in machine learning as counting and optimization problems. I developed algorithms based on formal methods and incremental solving, which resulted in both higher scalability and better accuracy. Building on this work, I plan to extend these techniques to solve counting and optimization problems in areas beyond machine learning.
 	
-	
-	\bibliographystyle{ieeetr}		\bibliography{ref}
+	\small
+	\bibliographystyle{ieeetr}
+	\bibliography{ref}
 \end{document}
