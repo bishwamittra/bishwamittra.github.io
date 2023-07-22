@@ -55,7 +55,7 @@
 	
 	\subsection*{Research Thrust 1: Fairness in Machine Learning}
 	
-	Fairness in machine learning focuses on quantifying and mitigating the unfairness or bias of the prediction of the classifier towards different sensitive groups in the data. To quantify bias in algorithmic decision-making, multiple fairness metrics have been proposed based on societal belief and norms. However, there has been insignificant progress in \textit{formally quantifying existing fairness metrics}. In addition, fairness metrics measure the overall bias of a classifier, but they cannot  \textit{explain the sources of bias}. Therefore, our research focuses on two key aspects: formally quantifying bias of a classifier and explaining its sources.
+	Fairness in machine learning focuses on quantifying and mitigating the  bias or unfairness of the prediction of the classifier towards different sensitive groups in the data. To quantify bias in algorithmic decision-making, multiple fairness metrics have been proposed based on societal norms and believes. However, there has been insignificant progress in \textit{formally quantifying existing fairness metrics}. In addition, fairness metrics measure the overall bias of a classifier, but they cannot  \textit{explain the sources of bias}. Therefore, our research focuses on two key aspects: formally quantifying bias of a classifier and explaining its sources.
 	
 	\subsubsection*{Probabilistic Fairness Quantification} In probabilistic fairness quantification, we formally quantify the bias of a classifier given the distribution of input features\textemdash essentially beyond a finite dataset. We propose two approaches to the problem: a general approach for finite classifiers encoded as Boolean formulas~\cite{ghosh2021justicia} and a specific approach for linear classifiers~\cite{ghosh2022algorithmic}.
 	
@@ -68,7 +68,7 @@
 	\fi
 	In the presence of multiple sensitive features resulting in exponentially many sensitive groups, SSAT efficiently finds the most (resp.\ least) favored
 	\iflongproposal
-	group by the classifier, thanks to the significant progress in satisfiability (SAT) solving, and particularly in weighted model counting problem.
+	group by the classifier, thanks to the progress in satisfiability (SAT) solving, and particularly in weighted model counting problem.
 	\else
 	group.
 	\fi 
@@ -81,7 +81,7 @@
 	\else
 	features and
 	\fi
-	demonstrate a tractable fairness quantification for linear classifiers by proposing stochastic subset sum 
+	demonstrate a tractable fairness quantification for linear classifiers by proposing a stochastic subset sum 
 	\iflongproposal
 	problem, which admits an efficient dynamic programming solution with pseudo-polynomial complexity.
 	\else
@@ -117,10 +117,29 @@
 	
 	\subsection*{Research Thrust 2: Explainable Rule-based Machine Learning}
 
-	\red{interpret}able machine learning often employs rule-based classifiers, which use a set of rules to represent the decision boundary. The \red{interpret}ability of such classifiers depends on the size of the rules: smaller rules with higher accuracy are preferred in practice. However, this presents a challenge when dealing with large datasets, as \red{interpret}able classification learning becomes a combinatorial optimization problem that suffers from poor scalability. To address this issue, we propose an incremental learning framework for \red{interpret}able rule-based classification on large datasets. Our framework combines maximum satisfiability (MaxSAT) and mixed integer linear programming (MILP) with mini-batch learning.
+	We learn classifiers explainable by design, such as  rule-based 
+	\iflongproposal
+	classifiers. In rule-based classifiers, such as decision lists and decision sets, the decision boundary is explained using a set of rules relating input features to class prediction.
+	\else
+	classifiers.
+	\fi
+	The explainability of such classifiers depends on the size of the rules\textemdash smaller rules with higher accuracy are preferred in \iflongproposal
+	practice, such as by practitioners in the medical domain.
+	\else
+	practice.
+	\fi 
+	Thus, explainable classification learning becomes a combinatorial optimization problem suffering from poor scalability in large datasets. We propose an incremental learning framework for rule-based 
+	\iflongproposal
+	classification by combining the progress in maximum satisfiability (MaxSAT) and mixed integer linear programming (MILP).
+	\else
+	classification.
+	\fi
 	
 	\subsubsection*{Scalability via Incremental Learning}
-	We introduce a new incremental learning framework, referred to as $\mathsf{IMLI}$, which is based on MaxSAT for learning \red{interpret}able classification rules in propositional logic. The framework aims to optimize both the accuracy and \red{interpret}ability of the classification rules through a joint objective function, and an optimal rule is learned by solving a specially designed MaxSAT query. However, while MaxSAT has made considerable progress in the last decade, it is not scalable to practical classification datasets with thousands to millions of samples. To address this, we incorporate an efficient incremental learning technique that integrates mini-batch learning and iterative rule-learning within the MaxSAT formulation. This results in a framework that learns a classifier by iteratively covering the training data, solving a sequence of smaller MaxSAT queries corresponding to each mini-batch in each iteration. Our experiments demonstrate that $\mathsf{IMLI}$ achieves the best balance among prediction accuracy, \red{interpret}ability, and scalability, with competitive accuracy and \red{interpret}ability compared to existing \red{interpret}able classifiers, and impressive scalability on large datasets where both \red{interpret}able and non-\red{interpret}able classifiers fail. Finally, we apply $\mathsf{IMLI}$ to learn popular \red{interpret}able classifiers such as decision lists and decision sets.
+	We introduce a new incremental learning framework, referred to as $\mathsf{IMLI}$, which is based on MaxSAT for learning \red{interpret}able classification rules in propositional logic. The framework aims to optimize both the accuracy and \red{interpret}ability of the classification rules through a joint objective function, and an optimal rule is learned by solving a specially designed MaxSAT query. However, while MaxSAT has made considerable progress in the last decade, it is not scalable to practical classification datasets with thousands to millions of samples. To address this, we incorporate an efficient incremental learning technique that integrates mini-batch learning and iterative rule-learning within the MaxSAT formulation. This results in a framework that learns a classifier by iteratively covering the training data, solving a sequence of smaller MaxSAT queries corresponding to each mini-batch in each iteration. 
+	
+	
+	Our experiments demonstrate that $\mathsf{IMLI}$ achieves the best balance among prediction accuracy, \red{interpret}ability, and scalability, with competitive accuracy and \red{interpret}ability compared to existing \red{interpret}able classifiers, and impressive scalability on large datasets where both \red{interpret}able and non-\red{interpret}able classifiers fail. Finally, we apply $\mathsf{IMLI}$ to learn popular \red{interpret}able classifiers such as decision lists and decision sets.
 	
 	\subsubsection*{Expressiveness via Logical Relaxation}
 	We extend our incremental learning framework to enable the learning of a more relaxed representation of classification rules with higher expressiveness, as described in~\cite{ghosh2020classification}. Specifically, we consider relaxed definitions of the standard OR/AND operators in propositional logic by allowing exceptions in the construction of a clause and in the selection of clauses in a rule. Based on these relaxed definitions, we introduce relaxed logical classification rules, which are motivated by the use of checklists in the medical domain and Boolean cardinality constraints. These rules generalize widely used rule representations, such as CNF, DNF, and decision sets. However, the combinatorial structure of these rules results in exponential succinctness, and na"ive learning techniques are computationally expensive. To overcome this issue, we propose an incremental mini-batch learning procedure, called $\mathsf{CRR}$, which leverages advances in MILP solvers to efficiently learn such rules. Our experimental analysis shows that $\mathsf{CRR}$ can generate more accurate and sparser classification rules compared to alternative rule-based classifiers.
