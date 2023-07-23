@@ -12,6 +12,7 @@
 \usepackage{subfig}
 \usepackage{graphicx}
 \usepackage{comment}
+\usepackage{amsmath}
 
 % Color
 \usepackage{xcolor}
@@ -39,13 +40,14 @@
 
 
 	\paragraph{}
-	My research is on fairness and explainability in machine learning applied in safety-critical domains. Traditional machine learning, particularly deep learning, is known for  unfair predictions towards marginalized sensitive groups and for generating black-box predictions. In my research, I design algorithmic framework to \textit{formally quantify fairness in machine learning}~\cite{ghosh2021justicia, ghosh2022algorithmic}, \textit{explain the sources of unfairness}~\cite{ghosh2022how}, and \textit{learn explainable rule-based classifiers}~\cite{ghosh22efficient, ghosh2019incremental, ghosh2020classification}. Prior approaches to these problems are often limited by scalability, accuracy, or both. To address the limitations, I closely integrate automated reasoning, formal methods, and statistics with fairness and explainability to develop scalable and accurate solutions.
+	My research is on fairness and explainability in machine learning applied in safety-critical domains. Traditional machine learning, particularly deep learning, is known for  unfair predictions towards marginalized sensitive groups and for generating black-box predictions. In my research, I design algorithmic frameworks to \textit{formally quantify fairness in machine learning}~\cite{ghosh2021justicia, ghosh2022algorithmic}, \textit{explain the sources of unfairness}~\cite{ghosh2022how}, and \textit{learn explainable rule-based classifiers}~\cite{ghosh22efficient, ghosh2019incremental, ghosh2020classification}. Prior approaches to these problems are often limited by scalability, accuracy, or both. To address the limitations, I closely integrate automated reasoning, formal methods, and statistics with fairness and explainability to develop scalable and accurate solutions.
 	
 	
 
 	
 	
-	During my PhD, I have  research collaborations and internships in academia and industry. In addition to fairness and explainability, I have collaborative research on  group testing~\cite{ciampiconi2020maxsat}, social-spatial group queries~\cite{ghosh2018flexible, apon2021social}, and hypergraph core decomposition~\cite{arafat2023neighborhood}. We publish our research in leading conferences and journals in artificial intelligence and machine learning: AAAI ($2022$, $2021$, $2020$), JAIR ($2022$), FAccT ($2023$), ECAI ($2020$), and AIES ($2019$); and databases: VLDB ($2023$, $2018$) and TSAS ($2022$).
+	During my PhD, I have  research collaborations and internships in academia and industry. In addition to fairness and explainability, I have collaborative research on  group testing~\cite{ciampiconi2020maxsat}, social-spatial group queries~\cite{ghosh2018flexible, apon2021social}, and hypergraph core decomposition~\cite{arafat2023neighborhood}. We publish our research in leading conferences and journals in artificial intelligence and machine learning: AAAI ($2022$, $2021$, $2020$), JAIR ($2022$), FAccT ($2023$), ECAI ($2020$), and AIES ($2019$); and databases: VLDB ($2023$, $2018$) and TSAS ($2022$). I present a tutorial on Auditing Bias of Machine Learning Algorithms: Tools and Overview in IJCAI 2023. I was awarded the NUS Research Scholarship, Singapore and Moblilex Scholarship at Universit\'e de Lille, France.
+	
 	
 	
 	
@@ -55,7 +57,7 @@
 	
 	\subsection*{Research Thrust 1: Fairness in Machine Learning}
 	
-	Fairness in machine learning focuses on quantifying and mitigating the  bias or unfairness of the prediction of the classifier towards different sensitive groups in the data. To quantify bias in algorithmic decision-making, multiple fairness metrics have been proposed based on societal norms and believes. However, there has been insignificant progress in \textit{formally quantifying existing fairness metrics}. In addition, fairness metrics measure the overall bias of a classifier, but they cannot  \textit{explain the sources of bias}. Therefore, our research focuses on two key aspects: formally quantifying bias of a classifier and explaining its sources.
+	Fairness in machine learning focuses on quantifying and mitigating the  bias or unfairness of the prediction of the classifier towards different sensitive groups in the data. To quantify bias in algorithmic decision-making, multiple fairness metrics have been proposed based on societal norms and beliefs. However, there has been insignificant progress in \textit{formally quantifying existing fairness metrics}. In addition, fairness metrics measure the overall bias of a classifier, but they cannot  \textit{explain the sources of bias}. Therefore, our research focuses on two key aspects: formally quantifying bias of a classifier and explaining its sources.
 	
 	\subsubsection*{Probabilistic Fairness Quantification} In probabilistic fairness quantification, we formally quantify the bias of a classifier given the distribution of input features\textemdash essentially beyond a finite dataset. We propose two approaches to the problem: a general approach for finite classifiers encoded as Boolean formulas~\cite{ghosh2021justicia} and a specific approach for linear classifiers~\cite{ghosh2022algorithmic}.
 	
@@ -119,65 +121,79 @@
 
 	We learn classifiers explainable by design, such as  rule-based 
 	\iflongproposal
-	classifiers. In rule-based classifiers, such as decision lists and decision sets, the decision boundary is explained using a set of rules relating input features to class prediction.
+	classifiers. In rule-based classifiers, for example decision lists and decision sets, the decision boundary is explained using a set of rules relating input features to class prediction.
 	\else
 	classifiers.
 	\fi
-	The explainability of such classifiers depends on the size of the rules\textemdash smaller rules with higher accuracy are preferred in \iflongproposal
-	practice, such as by practitioners in the medical domain.
+	The explainability of such classifiers often depends on the size of the rules\textemdash smaller rules with higher accuracy are preferred in \iflongproposal
+	practice, particularly by practitioners in the medical domain.
 	\else
 	practice.
 	\fi 
-	Thus, explainable classification learning becomes a combinatorial optimization problem suffering from poor scalability in large datasets. We propose an incremental learning framework for rule-based 
-	\iflongproposal
-	classification by combining the progress in maximum satisfiability (MaxSAT) and mixed integer linear programming (MILP).
-	\else
-	classification.
-	\fi
+	Our contributions in rule-based classification are two-folds: a scalable learning  framework for classification rules by incremental learning and an improvement of the expressiveness of rules via logical relaxation.
 	
 	\subsubsection*{Scalability via Incremental Learning}
-	We introduce a new incremental learning framework, referred to as $\mathsf{IMLI}$, which is based on MaxSAT for learning \red{interpret}able classification rules in propositional logic. The framework aims to optimize both the accuracy and \red{interpret}ability of the classification rules through a joint objective function, and an optimal rule is learned by solving a specially designed MaxSAT query. However, while MaxSAT has made considerable progress in the last decade, it is not scalable to practical classification datasets with thousands to millions of samples. To address this, we incorporate an efficient incremental learning technique that integrates mini-batch learning and iterative rule-learning within the MaxSAT formulation. This results in a framework that learns a classifier by iteratively covering the training data, solving a sequence of smaller MaxSAT queries corresponding to each mini-batch in each iteration. 
-	
-	
-	Our experiments demonstrate that $\mathsf{IMLI}$ achieves the best balance among prediction accuracy, \red{interpret}ability, and scalability, with competitive accuracy and \red{interpret}ability compared to existing \red{interpret}able classifiers, and impressive scalability on large datasets where both \red{interpret}able and non-\red{interpret}able classifiers fail. Finally, we apply $\mathsf{IMLI}$ to learn popular \red{interpret}able classifiers such as decision lists and decision sets.
+	We introduce an incremental learning framework based on MaxSAT, called $\mathsf{IMLI}$~\cite{ghosh22efficient,ghosh2019incremental}, to learn explainable classification rules in propositional logic, particularly in CNF. The CNF learning framework can potentially learn other explainable representations: decision sets, decision lists etc.
+	We design a MaxSAT formulation to jointly optimize the accuracy and explainability of CNF 
+	\iflongproposal
+	classifiers, and leverage the progress in MaxSAT solving to efficiently learn an optimal classifier. 
+	\else
+	classifiers. 
+	\fi 
+	However, the MaxSAT formula grows with dataset dimension and classifier size. To improve scalability, $\mathsf{IMLI}$ integrates both mini-batch learning and iterative 
+	\iflongproposal
+	rule-learning: $\mathsf{IMLI}$ learns a CNF classifier by iteratively covering the training data, where in each iteration $\mathsf{IMLI}$ solves a sequence of smaller MaxSAT queries respective to mini-batches. 
+	\else
+	rule-learning with MaxSAT solving.
+	\fi
+	In experiments, $\mathsf{IMLI}$ achieves the best balance among prediction accuracy, explainability, and scalability, for example, a competitive accuracy and explainability compared to existing rule-based classifiers, and a higher scalability on large datasets with a million samples where  explainable and non-explainable classifiers may fail. 
 	
 	\subsubsection*{Expressiveness via Logical Relaxation}
-	We extend our incremental learning framework to enable the learning of a more relaxed representation of classification rules with higher expressiveness, as described in~\cite{ghosh2020classification}. Specifically, we consider relaxed definitions of the standard OR/AND operators in propositional logic by allowing exceptions in the construction of a clause and in the selection of clauses in a rule. Based on these relaxed definitions, we introduce relaxed logical classification rules, which are motivated by the use of checklists in the medical domain and Boolean cardinality constraints. These rules generalize widely used rule representations, such as CNF, DNF, and decision sets. However, the combinatorial structure of these rules results in exponential succinctness, and na"ive learning techniques are computationally expensive. To overcome this issue, we propose an incremental mini-batch learning procedure, called $\mathsf{CRR}$, which leverages advances in MILP solvers to efficiently learn such rules. Our experimental analysis shows that $\mathsf{CRR}$ can generate more accurate and sparser classification rules compared to alternative rule-based classifiers.
+	Rule-based classifiers are explainable by design, but they are less expressive. We propose a more expressible yet explainable rule-based classifier, called relaxed-CNF~\cite{ghosh2020classification}, based on a relaxed definition of the standard OR/AND operators in logic. \iflongproposal
+	Motivated by checklists in the medical domain such as $ \text{CHADS}_2 $ score, in relaxed-CNF, both the minimum number of literals satisfied in a clause and the maximum number of clauses satisfied in a formula are flexible. As a result, relaxed-CNF
+	\else
+	Relaxed-CNF 
+	\fi
+	 generalizes widely used rule representations: CNF, DNF, decision lists, and decision sets. While the combinatorial structure of relaxed-CNF results in exponential succinctness, the direct learning technique is computationally expensive. Therefore, we extend $\mathsf{IMLI}$ and propose an incremental mini-batch learning procedure for relaxd-CNF classifiers, called $\mathsf{CRR}$, by leveraging advances in MILP solving. In experiments, $\mathsf{CRR}$ generates more accurate yet smaller relaxed-CNF rules compared to alternative rule-based classifiers.
 	
-	
-	
-	
-%	\paragraph{Incremental Learning of \red{interpret}able Classfication Rules.} We propose an incremental learning framework, called $ \mathsf{IMLI} $~\cite{ghosh22efficient,ghosh2019incremental},  based on maximum satisfiability (MaxSAT) for synthesizing classification rules expressible in proposition logic. $ \mathsf{IMLI} $ considers a joint objective function to optimize the accuracy and the \red{interpret}ability of classification rules and learns an optimal rule by solving an appropriately designed MaxSAT query. Despite the progress of MaxSAT solving in the last decade, the straightforward MaxSAT-based solution cannot scale to practical classification datasets containing thousands to millions of samples. Therefore, we incorporate an efficient incremental learning technique inside the MaxSAT formulation by integrating mini-batch learning and iterative rule-learning. The resulting framework learns a classifier by iteratively covering the training data, wherein in each iteration, it solves a sequence of smaller MaxSAT queries corresponding to each mini-batch. In our experiments, $ \mathsf{IMLI} $ achieves the best balance among prediction accuracy, \red{interpret}ability, and scalability. For instance, $ \mathsf{IMLI} $ attains a competitive prediction accuracy and \red{interpret}ability w.r.t. existing \red{interpret}able classifiers and demonstrates impressive scalability on large datasets (Figure~\ref{fig:scalability_imli}) where both \red{interpret}able and non-\red{interpret}able classifiers fail. As an application, we deploy $ \mathsf{IMLI} $ in learning popular \red{interpret}able classifiers such as decision lists and decision sets.
-	
-	\begin{comment}
-	\begin{figure}[!b]
-		
-		\centering
-		
-		\subfloat[Samples: $ 32,561 $\\Features: $ 94 $]{\includegraphics[scale=0.3]{figures/dataset_adult_cactus_train_val_fit_time}}
-		\subfloat[Samples: $  107, 696 $\\Features: $ 169 $]{\includegraphics[scale=0.3]{figures/dataset_weatherAUS_cactus_train_val_fit_time}}
-		\subfloat[Samples: $  1, 000, 000 $\\Features: $ 89 $]{\includegraphics[scale=0.3]{figures/dataset_labor_cactus_train_val_fit_time}}
-		
-		\caption{Results on the scalability of $ \mathsf{IMLI} $ compared to existing \red{interpret}able classifiers, presented using cactus plots for datasets with varied dimensions. As datasets become large, $ \mathsf{IMLI} $ becomes the only \red{interpret}able classifier to classify all of $ 1000 $ classification instances for a dataset. The success of $ \mathsf{IMLI} $ is attributed to its incremental learning wrapping a MaxSAT-based formulation.}
-		\label{fig:scalability_imli}
-	\end{figure}
-	\end{comment}
-	
-	
-	
-%	\paragraph{Classification Rules in Relaxed Logical Form.} We extend our incremental learning framework to learn a more relaxed representation of classification rules~\cite{ghosh2020classification}. Elaborately, we consider relaxed definitions of standard OR/AND operators in Boolean logic, which allow exceptions in the construction of a clause and also in the selection of clauses in a rule. Building on these relaxed definitions, we introduce relaxed-CNF classification rules motivated by the popular usage of checklists in the medical domain. Relaxed-CNF generalizes widely employed rule representations including CNF, DNF, and decision sets. While the combinatorial structure of relaxed-CNF rules offers exponential succinctness, the na\"ive learning techniques are computationally expensive. To this end, we propose an incremental mini-batch learning procedure, called $ \mathsf{CRR} $, that employs advances in the Mixed-Integer Linear Programming (MILP) solvers to efficiently learn relaxed-CNF rules. Our experimental analysis demonstrates that $ \mathsf{CRR} $ can generate relaxed-CNF rules, which are more accurate and sparser compared to the alternative rule-based models.
 	
 	
 
 	
+	
+	
+	
+
 	\section*{Future Research Plans}
-	 My long-term research plan is focused on designing efficient and scalable algorithms for machine learning, with a particular emphasis on their trustworthiness in safety-critical applications. To achieve this goal, I plan to work in a collaborative environment, where I can better understand the challenges arising in real-world applications and use advances in machine learning and formal methods to solve them. In pursuit of this vision, I have identified several key research themes that will guide my work.
+	
+	
+	
+	 My future research is dedicated to developing practical and scalable algorithms for trustworthy machine learning. Machine learning and artificial intelligence have been compared to the new electricity, with the potential to transform various aspects of human life, evident from the overwhelming response to generative AI. Ensuring fairness and explainability in deployed machine learning is now more necessary than ever. To accomplish this, I aim to work in a collaborative environment, gaining insights into real-world challenges and leveraging advances in the field, alongside formal methods, to make significant progress. I have identified key research themes that will guide my work towards this vision.
 	 
 	 
-	 \paragraph{Fairness and \red{interpret}ability As a Service.} I believe that in the future, machine learning will serve as an alternative decision-maker to humans in various domains, including law, education, and transportation. However, in high-stakes and safety-critical applications, black-box algorithms are expected to provide higher transparency. Therefore, it is crucial to achieve fairness, \red{interpret}ability, robustness, and privacy in machine learning models. However, traditional machine learning models, such as deep learning, are often data-hungry, making it challenging to certify and quantify properties such as fairness and \red{interpret}ability in complex models and large datasets. With this in mind, my research aims to develop efficient algorithms for ensuring the fairness and \red{interpret}ability of deep learning models, transformer-based natural language processing (NLP), and computer vision. 
+	 	\paragraph{Fairness and Explainability As a Service.} 
+	 	The goal of modern machine learning extends beyond learning patterns from large-scale historical data to ensuring responsible decision-making through careful regulation to establish trustworthiness. For instance, in a job application scenario, a machine learning algorithm must be fair across different demographic groups, resilient to non-actionable changes in candidate profiles, and explainable to allow candidates to understand the decision-making process. My long-term research goal is to offer fairness and explainability as a service with machine learning-based decision-making. Below, I outline several research ideas concerning fairness and explainability:
+	 	
+	 	\begin{itemize}
+	 		\item \textbf{Fairness Auditing.}
+	 		Our objective is to develop a comprehensive fairness auditing framework for machine learning, focusing on three key questions. (i) \textit{Which fairness metrics to choose?} We aim to identify the most appropriate fairness metrics for specific application contexts, as choosing the right metric is crucial among various notions of fairness. (ii) \textit{How to quantify bias?} We extend formal fairness quantification to encompass broader fairness metrics, including individual fairness, causal fairness, and counterfactual fairness. We apply this extension to
+	 		 unstructured data such as images and texts, and classifiers such as random forests, neural networks, and language models.  (iii) \textit{How to explain bias?}  We strive to advance our $\mathsf{FairXplainer}$ to explain bias for both texts and images. For instance, in conversational AI, we intend to highlight the input prompts that trigger biased statements generation by the model. By addressing these three questions, our vision is to design improved bias mitigating algorithms with significant practical impacts.
+	 		 
+	 		 \item \textbf{Explainability with Guarantees.} Our research in explainable machine learning spans two main directions.  (i) \textit{Explainability by design:} There is a growing interest for explainable machine learning in safety-critical domains, for example, clinical predictions, financial decisions, and self-driving vehicles. Building upon our explainable rule-based classifier $ \mathsf{IMLI} $, we aim to enhance learning algorithms for explainable models in large-scale datasets across supervised, semi-supervised, and unsupervised settings. (ii) \textit{Post-hoc explainability:} To explain black-box predictions, we focus on explanations with formal guarantees. For example, an explanation model must be robust, learned in a privacy-preserving manner, and provide the confidence level of explanations to increase transparency and trust in the decision-making process.
+	 	\end{itemize}
+	 	
+	 	
 	 
+		\paragraph{Verifiable Machine Learning with Formal Methods.} In safety-critical and high-stake domains, the verification of machine learning before deployment is crucial. To this end, formal methods provide a template to verify different checkable properties of machine learning. In particular, SAT, SMT and their variants allow to concentrate on synthesizing constraints from real-world use cases and delegate the solution finding to respective solvers, thanks to the dedicated community in formal methods. Building upon my ongoing research, which involves applying SSAT and MaxSAT to address fairness and explainability challenges, I plan to explore additional formulations in formal methods, such as functional analysis, abstract interpretation, and solvers with expressive theory, to further enhance the verification of machine learning models.
+	
+	
+ 
+	
+	
+	
+	\paragraph{Benchmarking Machine Learning: Improvement in Formal Methods.} Interdisciplinary research is an ongoing process that yields valuable contributions to different disciplines. Our work on fairness and explainability in machine learning has had a positive impact on the improvement of solvers in formal methods. For instance, when tackling explainable classification problems, we realized that MaxSAT alone was insufficient for large-scale rule-based classification, prompting the need for an incremental MaxSAT solver. As a result, we contribute to the MaxSAT evaluation competition in 2019 with our MaxSAT benchmarks of explainable classification. Subsequently, the competition introduced an incremental MaxSAT solving track. This observation serves as strong motivation for me to continue contributing to the formal methods community by creating additional machine learning verification benchmarks.
+		 
 	 
-	 \paragraph{Counting and Optimization Problems.} In my previous research, I focused on formulating fairness and \red{interpret}ability in machine learning as counting and optimization problems. I developed algorithms based on formal methods and incremental solving, which resulted in both higher scalability and better accuracy. Building on this work, I plan to extend these techniques to solve counting and optimization problems in areas beyond machine learning.
 	
 	\small
 	\bibliographystyle{ieeetr}
