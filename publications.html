@@ -134,8 +134,8 @@
                     <h4> <u>Bishwamittra Ghosh</u>, Yuan Wang, Huazhu Fu, Wei Qingsong, Yong Liu, Rick Goh</h4> 
                         <h4>Proceedings of IEEE CAI, 2024.</h4>
                     <button type="button" class="btn btn-primary collapsed" data-toggle="collapse" data-target="#splitfusionnet">Abstract</button>
-                        <!-- <a href="https://arxiv.org/pdf/2206.00667.pdf" class="btn btn-primary" role="button">PDF</a> -->
-                        <!-- <a href="publication/fairXplainer/paper.bib" class="btn btn-primary" role="button"	>Cite</a> -->
+                        <a href="publication/splitFusionNet_2024/main.pdf" class="btn btn-primary" role="button">PDF</a>
+                        <a href="publication/splitFusionNet_2024/paper.bib" class="btn btn-primary" role="button"	>Cite</a>
                         <!-- <a href="publication/fssgq-ghosh-slides.pdf" class="btn btn-primary" role="button"	>Slides</a> -->
                         <!-- <a href="https://github.com/ReAILe/bias-explainer" class="btn btn-primary" role="button"	>Code</a> -->
                         <!-- <a href="https://www.dropbox.com/s/7njeqwajgtb6696/lexr.mov?dl=0" class="btn btn-primary" role="button"	>Video</a> -->
@@ -144,11 +144,34 @@
     
                     <div id="splitfusionnet" class="collapse">
                         <p align="justify">
-                            Will be updated.
+                            In the past decades, machine learning (ML) has made significant progress in medical image classification. 
+                            The success can be attributed to two factors: (i) unique patient data collected and processed 
+                            by clinics/hospitals and (ii) corresponding ML models solving the underlying classification task. 
+                            In practice, patient data may contain sensitive information unique to patients’ demography; and 
+                            ML models often require higher computational resources beyond the affordability of an individual hospital.
+                            <br>
+                            Considering practical concerns, we explore a collaborative ML approach in which 
+                            the data provider, referred to as the client, aims to leverage the computational 
+                            resources of a server in jointly training a unified ML model without the need 
+                            to share any raw data. Specifically, we focus on the skin lesion classification 
+                            problem using a real-world dataset containing multi-modal image inputs and 
+                            multi-label ground truth.
+                            <br>
+                            To enable collaborative yet privacy-preserving skin lesion classification, 
+                            we develop a learning framework called SplitFusionNet based on u-shape split 
+                            learning. The key idea of SplitFusionNet is to split the ML model into a 
+                            (client, server) partition of deep neural network layers: the client 
+                            layers process multi-modal input data and multi-labels, while server 
+                            layers perform computationally extensive mid-layer computations. 
+                            Additionally, we apply lossless compression and decompression to 
+                            improve the communication cost between the client and the server. 
+                            Experimentally, SplitFusionNet requires less training pipeline 
+                            time than non-split centralized training while achieving equal 
+                            predictive performance.
+
                         </p>
                     </div>
                 </div>
-
             </div>
 
         </div>
