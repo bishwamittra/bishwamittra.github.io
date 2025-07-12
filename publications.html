@@ -155,10 +155,11 @@
 
             </div>
             
-            <br>
+            
 
             
             <div class="row">
+                <br>
                 <div class="col-md-1">
                         <span class="serial">
                         <strong> AAAI  </strong><br />
@@ -244,6 +245,40 @@
                             some relations are consistently better known than others but that
                             models differ in the precise facts they know, and differences in the
                             knowledge of base models and their finetuned counterparts.
+
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            
+            <div class="row">
+                <br>
+                <div class="col-md-1">
+                        <span class="serial">
+                        <strong> ECAI  </strong><br />
+                    </span>
+
+                </div>
+                <div class="col-md-8">
+                    <h3><a href="https://arxiv.org/pdf/2403.07151">History-Aware and Dynamic Client Contribution in Federated Learning</a></h3>
+                    <h4> <u> Bishwamittra Ghosh</u>, Debabrota Basu, Fu Huazhu, Wang Yuan, Renuga Kanagavelu, Jiang Jin Peng, Liu Yong, Goh Siow Mong Rick, Wei Qingsong</h4> 
+                        <!-- <h4>Proceedings of AAAI, 2025.</h4> -->
+                    <button type="button" class="btn btn-primary collapsed" data-toggle="collapse" data-target="#fl_contrib">Abstract</button>
+                    <a href="https://arxiv.org/pdf/2403.07151" class="btn btn-primary" role="button">PDF</a>
+                    <!-- <a href="publication/iclr_2025/llm_logical_consistency.pdf" class="btn btn-primary" role="button"	>Slides</a> -->
+                    <!-- <a href="https://www.youtube.com/watch?v=W0wr_WsSGrw" class="btn btn-primary" role="button"	>Talk</a> -->
+                    <!-- <a href="publication/splitFusionNet_2024/paper.bib" class="btn btn-primary" role="button"	>Cite</a>
+                    <a href="https://www.dropbox.com/s/7njeqwajgtb6696/lexr.mov?dl=0" class="btn btn-primary" role="button"	>Talk</a>
+                    <a href="https://www.dropbox.com/s/01qg1x3xt7as7n0/lexr.pptx?dl=0" class="btn btn-primary" role="button"	>Slides</a>
+                    <a href="https://drive.google.com/file/d/1sbKyQJwH7lb8KXx-RBQeTYTfEVNuvYfV/view?usp=sharing" class="btn btn-primary" role="button"	><small>Podcast [Experimental]</small></a> -->
+                                                    
+
+                    <div id="fl_contrib" class="collapse">
+                        <p align="justify">
+                            Federated Learning (FL) is a collaborative machine learning (ML) approach, where multiple clients participate in training an ML model without exposing their private data. Fair and accurate assessment of client contributions is an important problem in FL to facilitate incentive allocation and encourage diverse clients to participate in a unified model training. Existing methods for assessing client contribution adopts co-operative game-theoretic concepts, such as Shapley values, but under simplified assumptions. In this paper, we propose a history-aware game-theoretic framework, called FLContrib, to assess client contributions when a subset of clients (potentially non-i.i.d.) participate in each epoch of FL training. By exploiting the FL training process and linearity of Shapley value, we develop FLContrib that yields a historical timeline of client contributions as training progresses over epochs. Additionally, to assess client contribution under limited computational budget, we propose a scheduling procedure that considers a two-sided fairness criteria to perform expensive Shapley value computation only in a subset of training epochs. Empirically, FLContrib is the most efficient and consistently accurate method in contribution assessment across multiple utility functions. To demonstrate the benefits of history-aware client contributions, we apply FLContrib to detect dishonest clients conducting data poisoning in FL.
 
                         </p>
                     </div>
