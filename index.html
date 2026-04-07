@@ -162,6 +162,40 @@
                 <div class="row">
                     <div class="col-md-1">
                             <span class="serial">
+                            <strong> ACL  </strong><br />
+                        </span>
+    
+                    </div>
+                    <div class="col-md-8">
+                        <h3><a href="https://openreview.net/pdf?id=NZiaZoTaNq">Fine-tuning vs. In-context Learning in Large Language Models: A Formal Language Learning Perspective</a></h3>
+                        <h4> <u>Bishwamittra Ghosh</u>, Soumi Das, Till Speicher, Qinyuan Wu, Mohammad Aflah Khan, Deepak Garg, Krishna P. Gummadi, Evimaria Terzi</h4> 
+                            <!-- <h4>Proceedings of AAAI, 2025.</h4> -->
+                        <button type="button" class="btn btn-primary collapsed" data-toggle="collapse" data-target="#llm_ft_vs_icl">Abstract</button>
+                        <!-- <a href="https://openreview.net/pdf?id=NZiaZoTaNq" class="btn btn-primary" role="button">PDF</a> -->
+                        <!-- <a href="publication/iclr_2025/llm_logical_consistency.pdf" class="btn btn-primary" role="button"	>Slides</a> -->
+                        <!-- <a href="https://www.youtube.com/watch?v=W0wr_WsSGrw" class="btn btn-primary" role="button"	>Talk</a> -->
+                        <!-- <a href="publication/splitFusionNet_2024/paper.bib" class="btn btn-primary" role="button"	>Cite</a>
+                        <a href="https://www.dropbox.com/s/7njeqwajgtb6696/lexr.mov?dl=0" class="btn btn-primary" role="button"	>Talk</a>
+                        <a href="https://www.dropbox.com/s/01qg1x3xt7as7n0/lexr.pptx?dl=0" class="btn btn-primary" role="button"	>Slides</a>
+                        <a href="https://drive.google.com/file/d/1sbKyQJwH7lb8KXx-RBQeTYTfEVNuvYfV/view?usp=sharing" class="btn btn-primary" role="button"	><small>Podcast [Experimental]</small></a> -->
+                                                        
+    
+                        <div id="llm_ft_vs_icl" class="collapse">
+                            <p align="justify">
+                                Large language models (LLMs) operate in two learning modes: fine-tuning (FT) and in-context learning (ICL). We ask which mode exhibits greater language proficiency, and whether their inductive biases in pattern recognition differ. We propose three desiderata for the comparison: (D1) a precise specification of the learning task, (D2) an equal resource allocation to FT and ICL, and (D3) a comparable evaluation metric to find the better mode. Several prior studies attempted to compare FT and ICL without satisfying all three desiderata, resulting in mixed and inconclusive results. To satisfy these desiderata, we propose a formal language learning task, where syntactic pattern recognition is the main focus. We also introduce a discriminative test for language proficiency, enabling direct comparison of FT and ICL.
+
+                                Empirically, we find that (a) FT has greater language proficiency than ICL on in-distribution generalization, but both perform equally well on out-of-distribution generalization. (b) Their inductive bias, measured as the correlation of string generation, is usually similar, but similarity decreases with better language learning. (c) Unlike FT, ICL performance differs substantially across models of varying sizes and families, and becomes sensitive to tokens used in the languages. Thus, our controlled setup reveals subtle behavior of FT and ICL, which is difficult to capture in natural language datasets.
+    
+                            </p>
+                        </div>
+                    </div>
+    
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-1">
+                            <span class="serial">
                             <strong> ICLR  </strong><br />
                         </span>
     
@@ -979,80 +1013,8 @@
     </div>
 
     
-    
-	<div id="experience" class="background-alt">
-        <h2 class="heading"><a href="news.html">News</a></h2>
-        <div id="experience-timeline">
-            
-            <div data-date="12 July 2025">
-                <p>
-                    
-                    Our <a href="https://arxiv.org/pdf/2403.07151">paper</a> has been accepted at ECAI 2025. Federated learning relies on collaboration among distributed clients with local data. In this work, we propose a game-theoretic framework to quantify client contributions as they dynamically participate in the learning process.
 
-               	</p>
-            </div>
-
-
-            <div data-date="11 June 2025">
-                <p>
-                    Awarded <span style="color: #e74c3c">Outstanding Reviewer</span> at KDD 2025 (February cycle). 
-                    
-               	</p>
-            </div>
-
-
-
-            <div data-date="23 January 2025">
-                <p>
-                    How logically consistent large language models (LLMs) are? In our <a href="https://arxiv.org/pdf/2412.16100">ICLR paper</a>, we propose a framework for assessing and improving logical consistency of LLMs in fact-checking.
-                    This is a joint work with Sarah Hasan, Naheed Anjum Arafat, and Arijit Khan.
-               	</p>
-            </div>
-
-
-            <div data-date="10 December 2024">
-                <p>
-                    Our paper on <a href="https://arxiv.org/pdf/2410.08111">ML auditing via Fourier Analysis</a> is accepted in AAAI 2025. This is a collaboration with Ayoub and Deb from Inria, France.
-               	</p>
-            </div>
-
-            <div data-date="24 October 2024">
-                <p>
-                    Our paper on reliable knowledge estimation in LLMs is accepted at <a href="https://www.wsdm-conference.org/2025/">WSDM, 2025</a>. We propose a simple method that can reliably estimate the latent knowledge across multiple LLMs and relation queries.
-               	</p>
-            </div>
-
-            
-                        
-           
-        </div>
-        <p align="middle"><a href="news.html">All news...</a>.</p>
-        
-    </div>
-    <!-- End #news -->
-
-
-    <div id="projects" class="background-alt">
-        <h2 class="heading"><a href="blog.html">Blog</a></h2>
-        <div id="projects" class="background-alt">
-            <div class="container">
-                <div class="row">
-                    <div class="no-image">
-                          <div class="project-info">
-                              [IJCAI-2023 tutorial] <a href="https://auditing-fairness-tutorial.github.io">Auditing Bias of Machine Learning Algorithms: Tools and Overview</a> 
-                              <br>
-                              <br>
-                              <a href="justicia.html">Fairness Verification in Machine Learning: A Formal Methods Approach</a>
-                              <br>
-                              <br>
-                              <a href="imli.html">IMLI: Incremental learning of interpretable classification rules</a>
-                          </div>
-                    </div>
-                </div>
-          </div>   
-    </div>
-    <!-- End #projects -->
-
+   
     
 
     <footer>
