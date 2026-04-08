@@ -147,7 +147,7 @@
                         <div id="llm_ft_vs_icl" class="collapse">
                             <p align="justify">
                                 Large language models (LLMs) operate in two learning modes: fine-tuning (FT) and in-context learning (ICL). We ask which mode exhibits greater language proficiency, and whether their inductive biases in pattern recognition differ. We propose three desiderata for the comparison: (D1) a precise specification of the learning task, (D2) an equal resource allocation to FT and ICL, and (D3) a comparable evaluation metric to find the better mode. Several prior studies attempted to compare FT and ICL without satisfying all three desiderata, resulting in mixed and inconclusive results. To satisfy these desiderata, we propose a formal language learning task, where syntactic pattern recognition is the main focus. We also introduce a discriminative test for language proficiency, enabling direct comparison of FT and ICL.
-
+                                <br>
                                 Empirically, we find that (a) FT has greater language proficiency than ICL on in-distribution generalization, but both perform equally well on out-of-distribution generalization. (b) Their inductive bias, measured as the correlation of string generation, is usually similar, but similarity decreases with better language learning. (c) Unlike FT, ICL performance differs substantially across models of varying sizes and families, and becomes sensitive to tokens used in the languages. Thus, our controlled setup reveals subtle behavior of FT and ICL, which is difficult to capture in natural language datasets.
     
                             </p>
