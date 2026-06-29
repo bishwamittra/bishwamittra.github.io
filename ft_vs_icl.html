@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fine-tuning vs. In-context Learning in Large Language Models: A Formal Language Learning Perspective</title>
+    <meta name="description" content="ACL 2026 paper blog post. We compare fine-tuning and in-context learning in LLMs using formal languages as a controlled testbed. FT outperforms ICL on in-distribution tasks; both perform equally out-of-distribution. We introduce a discriminative test for language proficiency comparable across learning modes.">
+    <meta name="keywords" content="fine-tuning, in-context learning, large language models, formal languages, LLM, ACL 2026, language proficiency, discriminative test, few-shot learning">
+    <meta name="author" content="Bishwamittra Ghosh">
+    <link rel="shortcut icon" href="images/pp.jpg" type="image/x-icon">
+    <link rel="icon" href="images/pp.jpg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+    </script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="mobile-menu-open" class="shadow-large">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <header>
+        <div id="mobile-menu-close">
+            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <ul id="menu" class="shadow">
+            <li>
+                <a href="index.html" onClick="window.location='index.html'">Home</a>
+            </li>
+            <li>
+                <a href="publications.html" onClick="window.location='publications.html'">Publications</a>
+            </li>
+            <li>
+                <a href="education.html" onClick="window.location='education.html'">Education</a>
+            </li>
+            <li>
+                <a href="blog.html" onClick="window.location='blog.html'">Blog</a>
+            </li>
+            <li>
+                <a href="activities.html" onClick="window.location='activities.html'">Activities</a>
+            </li>
+            <li>
+                <a href="news.html" onClick="window.location='news.html'">News</a>
+            </li>
+        </ul>
+    </header>
+
+    <br>
+
+    <div id="projects" class="background-alt">
+        <div class="container">
+            <div class="row">
+                <div class="no-image">
+                    <div class="project-info">
+
+                        <h1>Fine-tuning vs. In-context Learning in Large Language Models: A Formal Language Learning Perspective</h1>
+                        <h3><a href="index.html">Bishwamittra Ghosh</a>, Soumi Das, Till Speicher, Qinyuan Wu, Mohammad Aflah Khan, Deepak Garg, Krishna P. Gummadi, Evimaria Terzi</h3>
+                        <h4 align="center"><i>Max Planck Institute for Software Systems &amp; Boston University</i></h4>
+                        <h4 align="center"><b>ACL 2026</b></h4>
+                        <h4 align="center">
+                            <a href="https://arxiv.org/pdf/2604.23267">[Paper]</a> &nbsp; <a href="https://github.com/bishwamittra/formallm">[Code]</a>
+                        </h4>
+
+                        <br>
+
+                        <p align="justify">
+                            Large language models (LLMs) operate in two fundamental learning modes: <b>fine-tuning (FT)</b> and <b>in-context learning (ICL)</b>. FT simulates a closed-book exam &mdash; the model updates its parameters on training data. ICL simulates an open-book exam &mdash; the model reads examples directly from its prompt without any parameter update. Both modes are widely used in practice, yet natural questions remain open: <b>which mode yields greater language proficiency, and do the two modes differ in their inductive biases?</b>
+                        </p>
+
+                        <p align="justify">
+                            Prior studies have yielded mixed and inconclusive answers, largely due to inconsistent experimental setups. Our ACL 2026 paper addresses this with a principled framework that satisfies three explicit desiderata for a fair comparison.
+                        </p>
+
+                        <br>
+                        <h2 align="left"><font color="#148f77">Why Prior Comparisons Failed</font></h2>
+
+                        <p align="justify">
+                            Comparing FT and ICL is harder than it looks. Three challenges tend to invalidate the comparison:
+                        </p>
+                        <ul style="text-align:left;">
+                            <li><b>Ill-defined tasks.</b> Natural language benchmarks are confounded by semantic ambiguity, data contamination, and imprecise train/test boundaries &mdash; making it difficult to isolate what the model is actually learning.</li>
+                            <li><b>Incomparable metrics.</b> FT and ICL differ in both input prompt format and model parameters (Figure 1), making raw generation probabilities incomparable across modes.</li>
+                            <li><b>Unequal resources.</b> FT and ICL have disjoint hyperparameters. A fair comparison must allocate equal data to both modes and evaluate their respective optimal configurations.</li>
+                        </ul>
+
+                        <p align="justify">
+                            We address all three by proposing <b>formal language learning</b> as the testbed.
+                        </p>
+
+                        <br>
+                        <div align="center">
+                            <img src="images/ft_vs_icl/fig_ft_vs_icl_intro.png" class="img-fluid" alt="Fine-Tuning vs In-context Learning diagram" style="max-width:55%;">
+                            <p><i>
+                                <b>Figure 1.</b> Under equal data, FT updates model parameters $\theta \rightarrow \theta^*$ on training strings and evaluates generation loss on a test string under the updated parameters. ICL keeps parameters fixed at $\theta$ and concatenates training strings as a prefix. Since both the parameters and input format differ, a direct comparison of generation loss is infeasible &mdash; motivating the discriminative test.
+                            </i></p>
+                        </div>
+
+                        <br>
+                        <h2 align="left"><font color="#148f77">The Testbed: (Probabilistic) Formal Languages</font></h2>
+
+                        <p align="justify">
+                            A probabilistic formal language is a distribution of strings defined by a grammar, and therefore is suitable for studying probabilistic generators like LLMs. Formal languages give us something natural language datasets cannot:
+                        </p>
+                        <ul style="text-align:left;">
+                            <li><b>Precise boundaries</b> between in-language and out-of-language strings</li>
+                            <li><b>Full control</b> over training and test distributions</li>
+                            <li><b>Zero data contamination</b> &mdash; all strings are synthetically generated</li>
+                            <li><b>No semantic ambiguity</b> &mdash; the task is pure syntactic pattern recognition</li>
+                        </ul>
+
+                        <p align="justify">
+                            We use <b>hierarchical probabilistic context-free grammars (HPCFGs)</b>, which mimic the recursive structure of natural languages. An LLM receives training strings and must learn to generate new strings by recognizing the underlying syntactic patterns &mdash; without any natural language instruction.
+                        </p>
+
+                        <p align="justify">
+                            <b>The grammar.</b> Each language is defined by an HPCFG with hierarchical production rules. Starting from a start symbol $S$, the grammar recursively expands non-terminals (shown in red) until reaching terminal tokens &mdash; the alphabet of the language (shown in teal). Each rule fires with a given probability (shown in blue).
+                        </p>
+
+                        <br>
+                        <div align="center">
+                            <img src="images/ft_vs_icl/fig_grammar.png" class="img-fluid" alt="HPCFG grammar rules" style="max-width:55%;">
+                            <p><i>
+                                <b>Figure 2a.</b> A representative HPCFG $G_1$ with non-terminal symbols A10&ndash;A19 and alphabet $\mathbf{T} = \{1, \ldots, 9\}$. Strings are generated by recursively applying production rules from $S$ until only terminal tokens remain.
+                            </i></p>
+                        </div>
+
+                        <br>
+
+                        <p align="justify">
+                            <b>A sample string.</b> Below is one string sampled from $G_1$, annotated with its parse derivation &mdash; showing the sequence of rule applications that produced the final token sequence.
+                        </p>
+
+                        <div align="center">
+                            <img src="images/ft_vs_icl/fig_sample_string.png" class="img-fluid" alt="Sample annotated string from grammar G1" style="max-width:70%;">
+                            <br><br>
+                            <p><i>
+                                <b>Figure 2b.</b> A string from language $L_1$, annotated with its parse derivation. The generation probability is the product of all rule probabilities applied &mdash; here $(0.5)^{23}$.
+                            </i></p>
+                        </div>
+
+                        <p align="justify">
+                            We experiment with six languages derived from two distinct HPCFGs and three alphabet sets, with training sizes ranging from 1 to 1024 strings and 1024 test strings per language.
+                        </p>
+
+                        <br>
+                        <h2 align="left"><font color="#148f77">A Comparable Metric: The Discriminative Test</font></h2>
+
+                        <p align="justify">
+                            How can we measure the language proficiency of an LLM. Today most proficiency tests are generative, considering strings inside the language. But, the generative approach &mdash; measuring generation loss on in-language strings &mdash; is not directly comparable across FT and ICL, because the two modes differ in both input format and model parameters, introducing confounding factors that prevent a direct numerical comparison.
+                        </p>
+
+                        <p align="justify">
+                            We introduce a <b>discriminative test</b>: instead of asking how likely the model is to generate an in-language string, we ask whether the model assigns lower loss to in-language strings than to <i>close yet grammatically incorrect</i> out-of-language strings. This yields a classification score (AUC) that is comparable across models, learning modes, and prompt formats &mdash; since the same model parameters are used to score both string types under identical conditions.
+                        </p>
+
+                        <p align="justify">
+                            The figure below illustrates the underlying intuition. In-language strings (green) are surrounded by out-of-language strings at increasing edit distances. The discriminative test is most stringent at edit distance 1, where the two classes are hardest to separate.
+                        </p>
+
+                        <br>
+                        <div align="center">
+                            <img src="images/ft_vs_icl/fig_string_hierarchy.png" class="img-fluid" alt="String hierarchy: in-language strings at center, out-of-language strings in surrounding rings" style="max-width:40%;">
+                            <p><i>
+                                <b>Figure 3.</b> String hierarchy. The green region contains grammatically correct in-language strings; surrounding red rings contain out-of-language strings of increasing edit distance. The generative test evaluates only within the green region; the discriminative test evaluates relative performance across the boundary.
+                            </i></p>
+                        </div>
+
+                        <br>
+
+                        <div align="center">
+                            <table style="width:65%; margin:auto;">
+                                <tr>
+                                    <td style="width:50%; text-align:center; padding-right:6px;">
+                                        <img src="images/ft_vs_icl/fig_generative_ft.png" class="img-fluid" alt="Generative test for FT" style="max-width:100%;">
+                                        <br><p><i>Generative test</i></p>
+                                    </td>
+                                    <td style="width:50%; text-align:center; padding-left:6px;">
+                                        <img src="images/ft_vs_icl/fig_discriminative_ft.png" class="img-fluid" alt="Discriminative test for FT" style="max-width:100%;">
+                                        <br><p><i>Discriminative test</i></p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br>
+                            <p><i>
+                                <b>Figure 4.</b> Generative test (left) and discriminative test (right) for FT in Mistral-7B on language $L_1$. The generative test measures raw generation loss on in-language strings; the discriminative test measures AUC when classifying in-language vs. out-of-language strings at increasing edit distances. The discriminative AUC is comparable across learning modes; the raw loss is not.
+                            </i></p>
+                        </div>
+
+                        <br>
+                        <h2 align="left"><font color="#148f77">Key Findings</font></h2>
+
+                        <p align="justify">
+                            We experiment with 18 open-source LLMs from 6 model families (Qwen, Mistral, LLaMA, Gemma, Pythia, OPT), ranging from 0.5B to 13B parameters. Our key findings are as follows.
+                        </p>
+
+                        <h3 align="left"><font color="#148f77">1. FT converges across models; ICL performance varies substantially</font></h3>
+                        <p align="justify">
+                            All LLMs converge to a similar optimal FT performance, regardless of model size or family. ICL performance, by contrast, varies substantially across models. Model size contributes to improved ICL performance but not to FT. Notably, within the same model family, two versions can demonstrate substantially different ICL abilities.
+                        </p>
+
+                        <div align="center">
+                            <table style="width:60%; margin:auto;">
+                                <tr>
+                                    <td style="width:50%; text-align:center; padding-right:6px;">
+                                        <img src="images/ft_vs_icl/fig_ft_all_models.png" class="img-fluid" alt="FT AUC across all models" style="max-width:100%;">
+                                        <br><p><i>Fine-tuning (FT)</i></p>
+                                    </td>
+                                    <td style="width:50%; text-align:center; padding-left:6px;">
+                                        <img src="images/ft_vs_icl/fig_icl_all_models.png" class="img-fluid" alt="ICL AUC across all models" style="max-width:100%;">
+                                        <br><p><i>In-context Learning (ICL)</i></p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br>
+                            <p><i>
+                                <b>Figure 5.</b> Discriminative AUC of FT (left) and ICL (right) across all 18 LLMs on language $L_1$. All models converge to a similar optimal FT performance, while ICL performance varies substantially across models.
+                            </i></p>
+                        </div>
+
+                        <h3 align="left"><font color="#148f77">2. FT outperforms ICL on in-distribution tasks, but not out-of-distribution</font></h3>
+                        <p align="justify">
+                            On in-distribution tasks &mdash; where training and test strings come from the same language &mdash; FT dominates ICL across most models. On out-of-distribution tasks &mdash; where test strings come from a related but distinct language &mdash; both modes perform comparably, and generalization is limited to languages close to the training language.
+                        </p>
+
+                        <div align="center">
+                            <img src="images/ft_vs_icl/fig_ft_vs_icl_qwen.png" class="img-fluid" alt="FT vs ICL discriminative AUC for Qwen-2.5-7B" style="max-width:32%;">
+                            <br><br>
+                            <p><i>
+                                <b>Figure 6.</b> FT vs. ICL discriminative AUC on language $L_1$ (in-distribution generalization)  in Qwen-2.5-7B.
+                            </i></p>
+                        </div>
+
+                        <h3 align="left"><font color="#148f77">3. Inductive biases align at low proficiency but diverge as learning improves</font></h3>
+                        <p align="justify">
+                            We measure inductive bias via the correlation of generation probabilities that FT and ICL assign to the same strings. When both modes have only partially learned the language, their inductive biases are closely aligned. As the number of examples increases and proficiency improves, the correlation decreases &mdash; the two modes develop increasingly different internal representations of the language.
+                        </p>
+
+                        <div align="center">
+                            <img src="images/ft_vs_icl/fig_inductive_bias.png" class="img-fluid" alt="Inductive bias: Pearson correlation between FT and ICL generation loss" style="max-width:28%;">
+                            <br><br>
+                            <p><i>
+                                <b>Figure 7.</b> Inductive bias of FT and ICL in Qwen-2.5-7B, measured as Pearson correlation of generation loss on identical test strings. Marker size increases with training set size. Correlation is positive but decreases as both modes learn more.
+                            </i></p>
+                        </div>
+
+                        <h3 align="left"><font color="#148f77">4. ICL is sensitive to token vocabulary; FT is not</font></h3>
+                        <p align="justify">
+                            FT performance is robust across languages sharing the same grammar but different alphabet sets. ICL performance, by contrast, is significantly affected by the specific tokens used, even when the underlying grammar rules are identical. This indicates that ICL is more tightly coupled to a model's pre-training token distribution, while FT can override this prior through parameter updates.
+                        </p>
+
+                        <div align="center">
+                            <table style="width:65%; margin:auto;">
+                                <tr>
+                                    <td style="width:33%; text-align:center; padding:4px;">
+                                        <img src="images/ft_vs_icl/fig_robustness_numerical.png" class="img-fluid" alt="FT vs ICL on language with numerical alphabet" style="max-width:100%;">
+                                        <br><p><i>Numerical</i></p>
+                                    </td>
+                                    <td style="width:33%; text-align:center; padding:4px;">
+                                        <img src="images/ft_vs_icl/fig_robustness_latin.png" class="img-fluid" alt="FT vs ICL on language with Latin alphabet" style="max-width:100%;">
+                                        <br><p><i>Latin</i></p>
+                                    </td>
+                                    <td style="width:33%; text-align:center; padding:4px;">
+                                        <img src="images/ft_vs_icl/fig_robustness_undertrained.png" class="img-fluid" alt="FT vs ICL on language with under-trained tokens" style="max-width:100%;">
+                                        <br><p><i>Under-trained tokens</i></p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br>
+                            <p><i>
+                                <b>Figure 8.</b> FT vs. ICL in Qwen-2.5-7B on the same grammar  but with three different alphabets. FT remains robust across all three; ICL performance degrades significantly on under-trained tokens (tokens rarely seen during pre-training).
+                            </i></p>
+                        </div>
+
+                        <br>
+                        <h2 align="left"><font color="#148f77">Formal Languages as a Controlled Testbed</font></h2>
+
+                        <p align="justify">
+                            Many of these findings are difficult to reproduce with natural language datasets due to data contamination, imprecise notions of in-distribution vs. out-of-distribution, and ill-defined language boundaries. Formal language learning provides a controlled setting in which these factors can be precisely regulated.
+                        </p>
+
+                        <p align="justify">
+                            We propose that synthetic formal languages should serve as a standard benchmark for studying LLM learning modes, enabling rigorous study of behaviors that are difficult to isolate in natural language settings. Source code is available at <a href="https://github.com/bishwamittra/formallm">github.com/bishwamittra/formallm</a>.
+                        </p>
+
+                        <br>
+                        <h2 align="left"><font color="#148f77">Implications</font></h2>
+
+                        <ul style="text-align:left;">
+                            <li><b>FT is the more reliable mode for in-distribution tasks.</b> It consistently reaches optimal performance and is robust to variation in token vocabulary.</li>
+                            <li><b>ICL performance is model-dependent.</b> The same prompting strategy may yield substantially different results across model families and versions; empirical validation on the target model is warranted.</li>
+                            <li><b>Neither mode generalizes well out-of-distribution.</b> Both FT and ICL generalize only to languages close to the training distribution.</li>
+                            <li><b>Inductive bias alignment holds only at low proficiency.</b> When combining FT and ICL, their agreement diminishes as the number of training examples increases.</li>
+                        </ul>
+
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 copyright">
+                </div>
+                <div class="col-sm-2 top">
+                    <span id="to-top">
+                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/scripts.min.js"></script>
+
+</body>
+</html>
