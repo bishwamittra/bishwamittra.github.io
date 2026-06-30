@@ -11,10 +11,10 @@
     <meta name="author" content="Bishwamittra Ghosh">
     <link rel="shortcut icon" href="images/pp.jpg" type="image/x-icon">
     <link rel="icon" href="images/pp.jpg" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
@@ -25,9 +25,6 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <link href="css/styles.css" rel="stylesheet">
 
@@ -44,38 +41,36 @@
         </div>
         <ul id="menu" class="shadow">
             <li>
-                <a href="index.html" onClick="window.location='index.html'">Home</a>
+                <a href="index.html">Home</a>
             </li>
             <li>
-                <a href="publications.html" onClick="window.location='publications.html'">Publications</a>
+                <a href="publications.html">Publications</a>
             </li>
             <li>
-                <a href="education.html" onClick="window.location='education.html'">Education</a>
+                <a href="blog.html">Blog</a>
             </li>
             <li>
-                <a href="blog.html" onClick="window.location='blog.html'">Blog</a>
+                <a href="activities.html">Activities</a>
             </li>
             <li>
-                <a href="activities.html" onClick="window.location='activities.html'">Activities</a>
+                <a href="news.html">News</a>
             </li>
-            <li>
-                <a href="news.html" onClick="window.location='news.html'">News</a>
+        <li>
+                <a href="education.html">Education</a>
             </li>
-        </ul>
+            </ul>
     </header>
-
-    <br>
-
-    <div id="projects" class="background-alt">
+<div id="projects" class="background-alt">
         <div class="container">
             <div class="row">
                 <div class="no-image">
                     <div class="project-info">
 
                         <h1>Fine-tuning vs. In-context Learning in Large Language Models: A Formal Language Learning Perspective</h1>
-                        <h3><a href="index.html">Bishwamittra Ghosh</a>, Soumi Das, Till Speicher, Qinyuan Wu, Mohammad Aflah Khan, Deepak Garg, Krishna P. Gummadi, Evimaria Terzi</h3>
+                        
+                        <h4><a href="index.html">Bishwamittra Ghosh</a>, Soumi Das, Till Speicher, Qinyuan Wu, Mohammad Aflah Khan, Deepak Garg, Krishna P. Gummadi, Evimaria Terzi</h4>
                         <h4 align="center"><i>Max Planck Institute for Software Systems &amp; Boston University</i></h4>
-                        <h4 align="center"><b>ACL 2026</b></h4>
+                        <h4 align="center">ACL 2026</h4>
                         <h4 align="center">
                             <a href="https://arxiv.org/pdf/2604.23267">[Paper]</a> &nbsp; <a href="https://github.com/bishwamittra/formallm">[Code]</a>
                         </h4>
@@ -91,7 +86,7 @@
                         </p>
 
                         <br>
-                        <h2 align="left"><font color="#148f77">Why Prior Comparisons Failed</font></h2>
+                        <h2 align="left"><font color="#374054">Why Prior Comparisons Failed</font></h2>
 
                         <p align="justify">
                             Comparing FT and ICL is harder than it looks. Three challenges tend to invalidate the comparison:
@@ -115,7 +110,7 @@
                         </div>
 
                         <br>
-                        <h2 align="left"><font color="#148f77">The Testbed: (Probabilistic) Formal Languages</font></h2>
+                        <h2 align="left"><font color="#374054">The Testbed: (Probabilistic) Formal Languages</font></h2>
 
                         <p align="justify">
                             A probabilistic formal language is a distribution of strings defined by a grammar, and therefore is suitable for studying probabilistic generators like LLMs. Formal languages give us something natural language datasets cannot:
@@ -162,7 +157,7 @@
                         </p>
 
                         <br>
-                        <h2 align="left"><font color="#148f77">A Comparable Metric: The Discriminative Test</font></h2>
+                        <h2 align="left"><font color="#374054">A Comparable Metric: The Discriminative Test</font></h2>
 
                         <p align="justify">
                             How can we measure the language proficiency of an LLM. Today most proficiency tests are generative, considering strings inside the language. But, the generative approach &mdash; measuring generation loss on in-language strings &mdash; is not directly comparable across FT and ICL, because the two modes differ in both input format and model parameters, introducing confounding factors that prevent a direct numerical comparison.
@@ -206,13 +201,13 @@
                         </div>
 
                         <br>
-                        <h2 align="left"><font color="#148f77">Key Findings</font></h2>
+                        <h2 align="left"><font color="#374054">Key Findings</font></h2>
 
                         <p align="justify">
                             We experiment with 18 open-source LLMs from 6 model families (Qwen, Mistral, LLaMA, Gemma, Pythia, OPT), ranging from 0.5B to 13B parameters. Our key findings are as follows.
                         </p>
 
-                        <h3 align="left"><font color="#148f77">1. FT converges across models; ICL performance varies substantially</font></h3>
+                        <h3 align="left"><font color="#374054">1. FT converges across models; ICL performance varies substantially</font></h3>
                         <p align="justify">
                             All LLMs converge to a similar optimal FT performance, regardless of model size or family. ICL performance, by contrast, varies substantially across models. Model size contributes to improved ICL performance but not to FT. Notably, within the same model family, two versions can demonstrate substantially different ICL abilities.
                         </p>
@@ -236,7 +231,7 @@
                             </i></p>
                         </div>
 
-                        <h3 align="left"><font color="#148f77">2. FT outperforms ICL on in-distribution tasks, but not out-of-distribution</font></h3>
+                        <h3 align="left"><font color="#374054">2. FT outperforms ICL on in-distribution tasks, but not out-of-distribution</font></h3>
                         <p align="justify">
                             On in-distribution tasks &mdash; where training and test strings come from the same language &mdash; FT dominates ICL across most models. On out-of-distribution tasks &mdash; where test strings come from a related but distinct language &mdash; both modes perform comparably, and generalization is limited to languages close to the training language.
                         </p>
@@ -249,7 +244,7 @@
                             </i></p>
                         </div>
 
-                        <h3 align="left"><font color="#148f77">3. Inductive biases align at low proficiency but diverge as learning improves</font></h3>
+                        <h3 align="left"><font color="#374054">3. Inductive biases align at low proficiency but diverge as learning improves</font></h3>
                         <p align="justify">
                             We measure inductive bias via the correlation of generation probabilities that FT and ICL assign to the same strings. When both modes have only partially learned the language, their inductive biases are closely aligned. As the number of examples increases and proficiency improves, the correlation decreases &mdash; the two modes develop increasingly different internal representations of the language.
                         </p>
@@ -262,7 +257,7 @@
                             </i></p>
                         </div>
 
-                        <h3 align="left"><font color="#148f77">4. ICL is sensitive to token vocabulary; FT is not</font></h3>
+                        <h3 align="left"><font color="#374054">4. ICL is sensitive to token vocabulary; FT is not</font></h3>
                         <p align="justify">
                             FT performance is robust across languages sharing the same grammar but different alphabet sets. ICL performance, by contrast, is significantly affected by the specific tokens used, even when the underlying grammar rules are identical. This indicates that ICL is more tightly coupled to a model's pre-training token distribution, while FT can override this prior through parameter updates.
                         </p>
@@ -291,7 +286,7 @@
                         </div>
 
                         <br>
-                        <h2 align="left"><font color="#148f77">Formal Languages as a Controlled Testbed</font></h2>
+                        <h2 align="left"><font color="#374054">Formal Languages as a Controlled Testbed</font></h2>
 
                         <p align="justify">
                             Many of these findings are difficult to reproduce with natural language datasets due to data contamination, imprecise notions of in-distribution vs. out-of-distribution, and ill-defined language boundaries. Formal language learning provides a controlled setting in which these factors can be precisely regulated.
@@ -302,7 +297,7 @@
                         </p>
 
                         <br>
-                        <h2 align="left"><font color="#148f77">Implications</font></h2>
+                        <h2 align="left"><font color="#374054">Implications</font></h2>
 
                         <ul style="text-align:left;">
                             <li><b>FT is the more reliable mode for in-distribution tasks.</b> It consistently reaches optimal performance and is robust to variation in token vocabulary.</li>
@@ -333,7 +328,8 @@
         </div>
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/scripts.min.js"></script>
 
 </body>

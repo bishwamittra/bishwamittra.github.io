@@ -21,8 +21,12 @@
         // Treat as normal link if no-scroll class
         if ($(this).hasClass('no-scroll')) return;
 
-        e.preventDefault();
         var heading = $(this).attr('href');
+
+        // Only intercept anchor links, let page links navigate normally
+        if (!heading || heading.charAt(0) !== '#') return;
+
+        e.preventDefault();
         var scrollDistance = $(heading).offset().top;
 
         $('html, body').animate({
@@ -37,9 +41,7 @@
 
     // Scroll to top
     $('#to-top').click(function() {
-        $('html, body').animate({
-            scrollTop: 0
-        }, 500);
+        window.scrollTo({top: 0, behavior: 'smooth'});
     });
 
     // Scroll to first element
@@ -68,7 +70,7 @@
 
         // Add dates to the timeline if exists
         $this.find('.vtimeline-content').each(function() {
-            var date = $(this).data('date');
+            var date = $(this).attr('data-date');
             if (date) { // Prepend if exists
                 $(this).parent().prepend('<span class="vtimeline-date">'+date+'</span>');
             }
@@ -92,6 +94,15 @@
         $(this).fadeOut(300, function() {
             $('#more-projects').fadeIn(300);
         });
+    });
+
+    // Sticky header on scroll
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 50) {
+            $('header').addClass('sticky');
+        } else {
+            $('header').removeClass('sticky');
+        }
     });
 
 })(jQuery);

@@ -9,10 +9,10 @@
     <title>IMLI: Incremental classification rule learning</title>
 	<link rel="shortcut icon" href="images/pp.jpg" type="image/x-icon">
 	<link rel="icon" href="images/pp.jpg" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
           tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
@@ -24,9 +24,6 @@
     </script>
 
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
       <link href="css/styles.css" rel="stylesheet">
     
@@ -46,32 +43,29 @@
         </div>
         <ul id="menu" class="shadow">
             <li>
-                <a href="index.html" onClick="window.location='index.html'"">Home</a>
+                <a href="index.html">Home</a>
             </li>
             <li>
-                    <a href="publications.html" onClick="window.location='publications.html'"">Publications</a>
+                    <a href="publications.html">Publications</a>
             </li>
             <li>
-                <a href="education.html" onClick="window.location='education.html'"">Education</a>
+                <a href="blog.html">Blog</a>
             </li>
             <li>
-                <a href="blog.html" onClick="window.location='blog.html'"">Blog</a>
+                <a href="activities.html">Activities</a>
             </li>
             <li>
-                <a href="activities.html" onClick="window.location='activities.html'"">Activities</a>
-            </li>
-            <li>
-                    <a href="news.html" onClick="window.location='news.html'"">News</a>
+                    <a href="news.html">News</a>
             </li>
             
             
             
-        </ul>
+        <li>
+                <a href="education.html">Education</a>
+            </li>
+            </ul>
     </header>
-    
-    <br>
-    
-    <div id="projects" class="background-alt">
+<div id="projects" class="background-alt">
             <!-- <h2 class="heading">Blog</h2> -->
             <div class="container">
                 <div class="row">
@@ -93,7 +87,7 @@
                             </p>
                             
                             <br>
-                            <h2 align="left"> <font color="#148f77">Example of interpretable classification rules</font></h2>        
+                            <h2 align="left"> <font color="#374054">Example of interpretable classification rules</font></h2>        
                             <p align="justify" >
                                     First, take a look at the Iris dataset, where each row represents a sample, and each column represents a feature/attribute of the Iris flower. An Iris flower has four features: sepal length, sepal width, petal length, and petal width. In supervised learning, each sample has a class label, i.e., there are three classes in the Iris dataset: Setosa, Versicolor, and Virginica. We can learn the following interpretable rule on the Iris dataset.
                             </p>
@@ -128,7 +122,7 @@
                             </p>
                             <br>
 
-                            <h2 align="left"> <font color="#148f77">Revisiting logical formulas</font></h2>        
+                            <h2 align="left"> <font color="#374054">Revisiting logical formulas</font></h2>        
                             <p align="justify">
                                 A logical formula in CNF (Conjunctive Normal Form) is a conjunction of clauses, where 
                                 each clause is a disjunction of literals. Moreover, a formula in DNF (Disjunctive Normal
@@ -141,7 +135,7 @@
                             </p>
                             
                             <br>
-                            <h2 align="left"> <font color="#148f77">Definition of Interpretibility</font></h2> 
+                            <h2 align="left"> <font color="#374054">Definition of Interpretibility</font></h2> 
 
                             <p align="justify">
                                     Defining the interpretability of a classifier is a challenging task. We have 
@@ -155,7 +149,7 @@
                             </p>
 
                             <br>
-                            <h2 align="left"><font color="#148f77">Objective function and constraints</font></h2>
+                            <h2 align="left"><font color="#374054">Objective function and constraints</font></h2>
 
                             <p align="justify">
                                 In the standard binary classification problem, we 
@@ -191,7 +185,7 @@
                                 
                             </p>
                             <br>
-                            <h2 align="left" font="red" > <font color="#148f77">Revisiting MaxSAT</font></h2>   
+                            <h2 align="left" font="red" > <font color="#374054">Revisiting MaxSAT</font></h2>   
                             <p align="justify">
                                     The maximum satisfiability problem (MaxSAT) is an optimization analog to
                                      the propositional satisfiability problem (SAT). In SAT, the goal is to 
@@ -214,7 +208,7 @@
                             
 
                             <br>
-                            <h2 align="left"> <font color="#148f77">MaxSAT encoding</font></h2>  
+                            <h2 align="left"> <font color="#374054">MaxSAT encoding</font></h2>  
                             <p align="justify">
                                 We encode the above objective function as soft clauses and the constraints as hard clauses 
                                 to construct the MaxSAT  query (please refer to the <a href="publication/imli-ghosh.pdf">paper</a>
@@ -236,7 +230,7 @@
                             </p>
 
                             <br>
-                            <h2 align="left"> <font color="#148f77">An Incremental Rule-learning Approach</font></h2>        
+                            <h2 align="left"> <font color="#374054">An Incremental Rule-learning Approach</font></h2>        
                             <img src="images/imli/framework.png" class="img-fluid" alt="Iris dataset" align="center" style="max-width:80%;
                             max-height:80%;">
                             <br>
@@ -279,7 +273,7 @@
                              </p>
 
                              <br>
-                             <h2 align="left"> <font color="#148f77">Key experimental results</font></h2>  
+                             <h2 align="left"> <font color="#374054">Key experimental results</font></h2>  
                              <p align="justify">
                                  (i) The incremental approach achieves up to three orders of magnitude improvement in
                                  training time by sacrificing a bit of accuracy.
@@ -292,7 +286,7 @@
                             
 
                             <br>
-                            <h2 align="left"> <font color="#148f77">Conclusion</font></h2>        
+                            <h2 align="left"> <font color="#374054">Conclusion</font></h2>        
                             
                             <p align="justify">
                                     The interpretable machine learning model ensures the reliability of
@@ -308,7 +302,7 @@
                             </p>
 
                             <br>
-                            <h2 align="left"> <font color="#148f77">Reference</font></h2>        
+                            <h2 align="left"> <font color="#374054">Reference</font></h2>        
                             
                             <p align="justify">
                                 [Malioutov et al., 2018] Dmitry Maliotov and Kuldeep S Meel.  MLIC: A MaxSAT-Based Framework for Learning 
@@ -347,8 +341,9 @@
             </footer>
             <!-- End footer -->
         
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script src="js/scripts.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/scripts.min.js"></script>
 
     
     
